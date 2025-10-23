@@ -1,0 +1,116 @@
+/* Global styles for mobile responsiveness */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Mobile-first responsive utility classes */
+.mobile-container {
+  padding: 0 clamp(1rem, 4vw, 2rem);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mobile-text {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  line-height: 1.6;
+}
+
+.mobile-title {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.mobile-subtitle {
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+  line-height: 1.4;
+}
+
+/* Responsive grid */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(1rem, 4vw, 2rem);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-center {
+    text-align: center;
+  }
+  
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-padding {
+    padding: clamp(1rem, 4vw, 2rem) !important;
+  }
+  
+  .mobile-margin {
+    margin: clamp(0.5rem, 2vw, 1rem) !important;
+  }
+}
+
+/* Touch-friendly interactive elements */
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  button, .clickable {
+    padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1rem, 3vw, 1.125rem);
+  }
+}
+
+/* Viewport-based responsive spacing */
+.responsive-section {
+  padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+}
+
+/* Fluid typography */
+.fluid-text {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.fluid-heading {
+  font-size: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+/* Responsive flexbox utilities */
+.flex-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+@media (max-width: 640px) {
+  .flex-responsive {
+    flex-direction: column;
+  }
+}
+
+/* Safe area padding for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-padding {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
