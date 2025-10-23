@@ -12,11 +12,6 @@ const Navigation = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const specialButtons = [
-    { name: 'Registration', href: 'https://forms.gle/1QvABHag9tzZd2si8', external: true, type: 'registration' },
-    { name: 'Activity Participation', href: 'https://forms.gle/WuUNCzzMJJBuo3qk9', external: true, type: 'activity' },
-  ];
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -68,23 +63,33 @@ const Navigation = () => {
       gap: 'clamp(0.5rem, 2vw, 0.75rem)',
     },
     logoIcon: {
-      width: 'clamp(32px, 8vw, 40px)',
-      height: 'clamp(32px, 8vw, 40px)',
+      width: 'clamp(36px, 8vw, 48px)',
+      height: 'clamp(36px, 8vw, 48px)',
       borderRadius: '50%',
-      background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)',
+      background: 'white',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: 'clamp(0.875rem, 3vw, 1rem)',
+      padding: '2px',
+      boxShadow: '0 0 15px rgba(59, 130, 246, 0.3)',
+      border: '2px solid rgba(59, 130, 246, 0.2)',
+    },
+    logoImage: {
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      objectFit: 'cover',
     },
     logoText: {
-      fontSize: 'clamp(1rem, 4vw, 1.25rem)',
-      fontFamily: 'Orbitron, monospace',
-      fontWeight: 'bold',
-      color: 'white',
+      fontSize: 'clamp(1.125rem, 4vw, 1.5rem)',
+      fontFamily: 'var(--font-heading)',
+      fontWeight: 'var(--weight-bold)',
+      background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
       margin: 0,
+      letterSpacing: '0.02em',
     },
     desktopNav: {
       display: 'flex',
@@ -183,34 +188,6 @@ const Navigation = () => {
       transition: 'all 0.3s ease',
       minWidth: '200px',
     },
-    registrationButton: {
-      padding: '1rem 2rem',
-      background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-      color: 'white',
-      borderRadius: '12px',
-      fontSize: '1.125rem',
-      fontWeight: '600',
-      border: 'none',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      minWidth: '200px',
-      position: 'relative',
-      overflow: 'hidden',
-      boxShadow: '0 0 20px rgba(255, 107, 107, 0.5)',
-    },
-    activityButton: {
-      padding: '1rem 2rem',
-      background: 'linear-gradient(45deg, #45b7d1, #96ceb4)',
-      color: 'white',
-      borderRadius: '12px',
-      fontSize: '1.125rem',
-      fontWeight: '600',
-      border: 'none',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      minWidth: '200px',
-      boxShadow: '0 0 15px rgba(69, 183, 209, 0.4)',
-    },
   };
 
   // Media query hook
@@ -261,7 +238,11 @@ const Navigation = () => {
                 ease: 'linear',
               }}
             >
-              U
+              <img 
+                src="/udbhav-logo.png" 
+                alt="UDBHAV 2.0 Logo" 
+                style={navStyles.logoImage}
+              />
             </motion.div>
             <h1 style={navStyles.logoText}>UDBHAV 2.0</h1>
           </motion.div>
@@ -281,44 +262,6 @@ const Navigation = () => {
                 {item.name}
               </motion.button>
             ))}
-            
-            {/* Registration Button with Glow */}
-            <motion.button
-              style={{
-                ...navStyles.ctaButton,
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-                boxShadow: '0 0 15px rgba(255, 107, 107, 0.5)',
-              }}
-              onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 25px rgba(255, 107, 107, 0.8)',
-              }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: ['0 0 15px rgba(255, 107, 107, 0.5)', '0 0 25px rgba(255, 107, 107, 0.8)', '0 0 15px rgba(255, 107, 107, 0.5)'],
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              Registration
-            </motion.button>
-
-            {/* Activity Participation Button */}
-            <motion.button
-              style={{
-                ...navStyles.ctaButton,
-                background: 'linear-gradient(45deg, #45b7d1, #96ceb4)',
-                boxShadow: '0 0 10px rgba(69, 183, 209, 0.4)',
-              }}
-              onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 20px rgba(69, 183, 209, 0.6)',
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Activity Participation
-            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -378,63 +321,6 @@ const Navigation = () => {
                 {item.name}
               </motion.button>
             ))}
-            
-            {/* Registration Button with Glow Animation */}
-            <motion.button
-              style={navStyles.registrationButton}
-              onClick={() => {
-                window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank');
-                setIsMobileMenuOpen(false);
-              }}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.4 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 30px rgba(255, 107, 107, 0.8)',
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {/* Pulsing Glow Effect */}
-              <motion.div
-                style={{
-                  position: 'absolute',
-                  inset: '-2px',
-                  background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-                  borderRadius: '12px',
-                  opacity: 0.3,
-                  zIndex: -1,
-                }}
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-              />
-              ✨ Registration
-            </motion.button>
-
-            {/* Activity Participation Button */}
-            <motion.button
-              style={navStyles.activityButton}
-              onClick={() => {
-                window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank');
-                setIsMobileMenuOpen(false);
-              }}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 25px rgba(69, 183, 209, 0.6)',
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              🎯 Activity Participation
-            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

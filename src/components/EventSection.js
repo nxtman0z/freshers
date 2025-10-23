@@ -33,23 +33,25 @@ const EventSection = () => {
     },
     
     title: {
-      fontSize: 'clamp(2.5rem, 8vw, 4rem)',
-      fontWeight: 'bold',
+      fontSize: 'clamp(3rem, 8vw, 4.5rem)',
+      fontWeight: 'var(--weight-black)',
+      fontFamily: 'var(--font-heading)',
       background: 'linear-gradient(45deg, #6366f1, #14b8a6, #3b82f6)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       backgroundSize: '200% 200%',
-      fontFamily: 'Inter, sans-serif',
-      letterSpacing: '-0.02em',
-      lineHeight: '1.2',
+      letterSpacing: '0.02em',
+      lineHeight: '1.1',
+      textTransform: 'uppercase',
     },
     
     subtitle: {
-      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-      color: 'rgba(255, 255, 255, 0.7)',
+      fontSize: 'clamp(1rem, 3vw, 1.35rem)',
+      fontFamily: 'var(--font-body)',
+      fontWeight: 'var(--weight-normal)',
+      color: 'var(--text-secondary)',
       marginTop: '1rem',
-      fontFamily: 'Inter, sans-serif',
       letterSpacing: '0.01em',
     },
     
@@ -98,24 +100,26 @@ const EventSection = () => {
     },
     
     cardTitle: {
-      fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
-      fontWeight: '600',
-      color: 'white',
+      fontSize: 'clamp(1.35rem, 4vw, 1.65rem)',
+      fontWeight: 'var(--weight-semibold)',
+      fontFamily: 'var(--font-subheading)',
+      color: 'var(--text-contrast)',
       marginBottom: '1rem',
       textAlign: 'center',
-      fontFamily: 'Inter, sans-serif',
-      letterSpacing: '-0.01em',
-      textShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
+      letterSpacing: '0.01em',
+      lineHeight: '1.3',
+      textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
     },
     
     eventDate: {
-      fontSize: 'clamp(1.5rem, 5vw, 2rem)',
-      fontWeight: '700',
+      fontSize: 'clamp(1.65rem, 5vw, 2.15rem)',
+      fontWeight: 'var(--weight-bold)',
+      fontFamily: 'var(--font-heading)',
       color: '#00d9ff',
       textAlign: 'center',
       marginBottom: '0.75rem',
       textShadow: '0 0 15px rgba(0, 217, 255, 0.5)',
-      fontFamily: 'Inter, sans-serif',
+      letterSpacing: '0.01em',
     },
     
     eventTime: {
@@ -257,7 +261,7 @@ const EventSection = () => {
               ease: 'linear',
             }}
           >
-            Event Info 📅
+            Event Info 
           </motion.h2>
           <motion.p
             style={eventStyles.subtitle}

@@ -4,11 +4,15 @@ import { motion } from 'framer-motion';
 const AboutSection = () => {
   const aboutStyles = {
     section: {
-      padding: 'clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem)',
+      padding: '0 clamp(1rem, 4vw, 2rem) clamp(2rem, 6vw, 4rem)',
       background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #1e3a8a 75%, #0f172a 100%)',
       position: 'relative',
       overflow: 'hidden',
       minHeight: '100vh',
+      margin: '0',
+      border: 'none',
+      outline: 'none',
+      marginTop: '-1px',
     },
     container: {
       maxWidth: '1200px',
@@ -18,8 +22,9 @@ const AboutSection = () => {
     },
     // Main Welcome Title
     welcomeTitle: {
-      fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
-      fontWeight: '900',
+      fontSize: 'clamp(3rem, 8vw, 5rem)',
+      fontWeight: 'var(--weight-black)',
+      fontFamily: 'var(--font-heading)',
       background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffd93d, #6c5ce7)',
       backgroundSize: '300% 300%',
       backgroundClip: 'text',
@@ -27,9 +32,10 @@ const AboutSection = () => {
       WebkitTextFillColor: 'transparent',
       textAlign: 'center',
       marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)',
-      fontFamily: 'Orbitron, monospace',
       textShadow: '0 0 40px rgba(255, 107, 107, 0.3)',
-      letterSpacing: '2px',
+      letterSpacing: '0.02em',
+      lineHeight: '1.1',
+      textTransform: 'uppercase',
     },
     // Hero Message Box
     heroMessageBox: {
@@ -45,17 +51,23 @@ const AboutSection = () => {
       boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
     },
     heroHeading: {
-      fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-      fontWeight: 'bold',
+      fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
+      fontWeight: 'var(--weight-bold)',
+      fontFamily: 'var(--font-subheading)',
       color: '#ffd93d',
       marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
       textShadow: '0 0 20px rgba(255, 217, 61, 0.5)',
+      letterSpacing: '0.01em',
+      lineHeight: '1.2',
     },
     heroMessage: {
-      fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
-      color: '#e2e8f0',
-      lineHeight: '1.7',
+      fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+      fontFamily: 'var(--font-body)',
+      fontWeight: 'var(--weight-normal)',
+      color: 'var(--text-primary)',
+      lineHeight: '1.6',
       marginBottom: '1rem',
+      letterSpacing: '0.005em',
     },
     // Cards Grid Container
     cardsContainer: {
@@ -84,11 +96,15 @@ const AboutSection = () => {
       textAlign: 'center',
     },
     cardTitle: {
-      fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-      fontWeight: 'bold',
-      color: '#ffffff',
+      fontSize: 'clamp(1.35rem, 3vw, 1.85rem)',
+      fontWeight: 'var(--weight-semibold)',
+      fontFamily: 'var(--font-subheading)',
+      color: 'var(--text-contrast)',
       marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
       textAlign: 'center',
+      letterSpacing: '0.01em',
+      lineHeight: '1.3',
+      textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
     },
     rulesList: {
       listStyle: 'none',
@@ -98,20 +114,27 @@ const AboutSection = () => {
     ruleItem: {
       display: 'flex',
       alignItems: 'center',
-      padding: '0.75rem 0',
+      padding: '0.875rem 0',
       fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+      fontFamily: 'var(--font-body)',
+      fontWeight: 'var(--weight-normal)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+      lineHeight: '1.4',
+      letterSpacing: '0.005em',
     },
     ruleIcon: {
-      marginRight: '0.75rem',
-      fontSize: '1.125rem',
-      minWidth: '24px',
+      marginRight: '0.875rem',
+      fontSize: '1.25rem',
+      minWidth: '28px',
+      fontWeight: 'var(--weight-medium)',
     },
     allowedRule: {
       color: '#4ade80',
+      textShadow: '0 1px 2px rgba(74, 222, 128, 0.2)',
     },
     notAllowedRule: {
       color: '#f87171',
+      textShadow: '0 1px 2px rgba(248, 113, 113, 0.2)',
     },
   };
 

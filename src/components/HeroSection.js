@@ -77,7 +77,11 @@ const HeroSection = () => {
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
-      padding: 'clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
+      padding: 'clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem) 0',
+      margin: '0',
+      border: 'none',
+      outline: 'none',
+      marginBottom: '-1px',
     },
     canvas: {
       position: 'absolute',
@@ -86,7 +90,9 @@ const HeroSection = () => {
       right: 0,
       bottom: 0,
       zIndex: 0,
-      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)',
+      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f23 100%)',
+      border: 'none',
+      outline: 'none',
     },
     shapesContainer: {
       position: 'absolute',
@@ -111,35 +117,42 @@ const HeroSection = () => {
       width: '100%',
     },
     title: {
-      fontSize: 'clamp(2.5rem, 12vw, 8rem)',
-      fontFamily: 'Orbitron, monospace',
-      fontWeight: 900,
+      fontSize: 'clamp(3rem, 10vw, 6rem)',
+      fontFamily: 'var(--font-heading)',
+      fontWeight: 'var(--weight-black)',
       background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #00d9ff)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       lineHeight: '1.1',
+      letterSpacing: '0.02em',
       marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
       filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.3))',
       wordBreak: 'break-word',
+      textTransform: 'uppercase',
     },
     subtitle: {
-      fontSize: 'clamp(1.5rem, 6vw, 4rem)',
-      fontFamily: 'Orbitron, monospace',
-      fontWeight: 300,
+      fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+      fontFamily: 'var(--font-subheading)',
+      fontWeight: 'var(--weight-semibold)',
       color: '#ffd700',
       marginTop: 'clamp(0.5rem, 2vw, 1rem)',
       marginBottom: 'clamp(1rem, 3vw, 2rem)',
       textShadow: '0 0 20px rgba(255, 212, 0, 0.5)',
+      letterSpacing: '0.01em',
       wordBreak: 'break-word',
     },
     description: {
-      fontSize: 'clamp(1rem, 3vw, 1.5rem)',
-      color: '#d1d5db',
+      fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+      fontFamily: 'var(--font-body)',
+      fontWeight: 'var(--weight-bold)',
+      color: 'var(--text-primary)',
       marginBottom: 'clamp(1rem, 3vw, 2rem)',
-      lineHeight: '1.6',
+      lineHeight: '1.5',
+      letterSpacing: '0.01em',
       maxWidth: '800px',
       margin: '0 auto clamp(1rem, 3vw, 2rem) auto',
+      textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
     },
     highlight: {
       color: '#00d9ff',
@@ -149,14 +162,20 @@ const HeroSection = () => {
       marginBottom: 'clamp(2rem, 6vw, 3rem)',
     },
     universityName: {
-      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+      fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+      fontFamily: 'var(--font-body)',
       color: '#c084fc',
-      fontWeight: 500,
+      fontWeight: 'var(--weight-medium)',
+      lineHeight: '1.4',
+      letterSpacing: '0.01em',
     },
     departmentName: {
-      fontSize: '1rem',
-      color: '#9ca3af',
+      fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+      fontFamily: 'var(--font-body)',
+      color: 'var(--text-secondary)',
+      fontWeight: 'var(--weight-normal)',
       marginTop: '0.5rem',
+      lineHeight: '1.4',
     },
     scrollIndicator: {
       position: 'absolute',
@@ -300,7 +319,7 @@ const HeroSection = () => {
           style={{
             display: 'flex',
             flexDirection: window.innerWidth < 768 ? 'column' : 'row',
-            gap: 'clamp(1rem, 4vw, 2rem)',
+            gap: 'clamp(0.75rem, 3vw, 1.5rem)',
             justifyContent: 'center',
             alignItems: 'center',
             margin: 'clamp(2rem, 6vw, 3rem) 0',
@@ -308,6 +327,9 @@ const HeroSection = () => {
             background: 'transparent',
             position: 'relative',
             zIndex: 10,
+            maxWidth: '800px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
           }}
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -316,32 +338,36 @@ const HeroSection = () => {
           {/* Registration Button with Glow */}
           <motion.button
             style={{
-              padding: 'clamp(0.875rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)',
-              background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
-              color: 'white',
+              padding: 'clamp(1rem, 3vw, 1.25rem) clamp(1.75rem, 5vw, 2.25rem)',
+              background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
+              color: 'var(--text-contrast)',
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
-              fontWeight: '600',
+              fontFamily: 'var(--font-button)',
+              fontWeight: 'var(--weight-semibold)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
               border: '2px solid rgba(255, 255, 255, 0.1)',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 0 20px rgba(255, 107, 107, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
+              boxShadow: '0 0 20px rgba(139, 92, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
               position: 'relative',
               overflow: 'hidden',
-              minWidth: 'clamp(140px, 30vw, 180px)',
+              minWidth: 'clamp(160px, 32vw, 200px)',
               backdropFilter: 'blur(10px)',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
             onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
             whileHover={{
               scale: 1.05,
-              boxShadow: '0 0 30px rgba(255, 107, 107, 0.8)',
+              boxShadow: '0 0 30px rgba(139, 92, 246, 0.8)',
             }}
             whileTap={{ scale: 0.95 }}
             animate={{
               boxShadow: [
-                '0 0 20px rgba(255, 107, 107, 0.5)', 
-                '0 0 30px rgba(255, 107, 107, 0.8)', 
-                '0 0 20px rgba(255, 107, 107, 0.5)'
+                '0 0 20px rgba(139, 92, 246, 0.5)', 
+                '0 0 30px rgba(139, 92, 246, 0.8)', 
+                '0 0 20px rgba(139, 92, 246, 0.5)'
               ],
             }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -351,7 +377,7 @@ const HeroSection = () => {
               style={{
                 position: 'absolute',
                 inset: '-2px',
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
                 borderRadius: '50px',
                 opacity: 0.3,
                 zIndex: -1,
@@ -371,27 +397,88 @@ const HeroSection = () => {
           {/* Activity Participation Button */}
           <motion.button
             style={{
-              padding: 'clamp(0.875rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)',
-              background: 'linear-gradient(45deg, #45b7d1, #96ceb4)',
-              color: 'white',
+              padding: 'clamp(1rem, 3vw, 1.25rem) clamp(1.75rem, 5vw, 2.25rem)',
+              background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
+              color: 'var(--text-contrast)',
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
-              fontWeight: '600',
+              fontFamily: 'var(--font-button)',
+              fontWeight: 'var(--weight-semibold)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
               border: '2px solid rgba(255, 255, 255, 0.1)',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 0 15px rgba(69, 183, 209, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
-              minWidth: 'clamp(140px, 30vw, 180px)',
+              boxShadow: '0 0 15px rgba(139, 92, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
+              minWidth: 'clamp(160px, 32vw, 200px)',
               backdropFilter: 'blur(10px)',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
             onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
             whileHover={{
               scale: 1.05,
-              boxShadow: '0 0 25px rgba(69, 183, 209, 0.8)',
+              boxShadow: '0 0 25px rgba(139, 92, 246, 0.8)',
             }}
             whileTap={{ scale: 0.95 }}
           >
             🎯 Activity Participation
+          </motion.button>
+
+          {/* Watch the Vibe Button */}
+          <motion.button
+            style={{
+              padding: 'clamp(1rem, 3vw, 1.25rem) clamp(1.75rem, 5vw, 2.25rem)',
+              background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
+              color: 'var(--text-contrast)',
+              borderRadius: '50px',
+              fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+              fontFamily: 'var(--font-button)',
+              fontWeight: 'var(--weight-semibold)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 0 15px rgba(139, 92, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
+              minWidth: 'clamp(160px, 32vw, 200px)',
+              backdropFilter: 'blur(10px)',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
+            }}
+            onClick={() => alert('🎬 Stay Tuned!\nSomething Big Is Coming Soon — The Freshers\' Vibe Awaits 💥')}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 25px rgba(139, 92, 246, 0.8)',
+            }}
+            whileTap={{ scale: 0.95 }}
+            animate={{
+              boxShadow: [
+                '0 0 15px rgba(139, 92, 246, 0.5)', 
+                '0 0 25px rgba(139, 92, 246, 0.8)', 
+                '0 0 15px rgba(139, 92, 246, 0.5)'
+              ],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity }}
+          >
+            {/* Pulsing Glow Effect */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                inset: '-2px',
+                background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
+                borderRadius: '50px',
+                opacity: 0.3,
+                zIndex: -1,
+              }}
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+              }}
+            />
+            🎬 Watch the Vibe
           </motion.button>
         </motion.div>
 
