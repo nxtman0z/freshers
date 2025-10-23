@@ -199,7 +199,7 @@ const ContactSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          कोई सवाल या inquiry है? हमसे संपर्क करें! आपकी हर problem का solution देने के लिए हम यहाँ हैं।
+          Have any questions or inquiries? Contact us! We're here to provide solutions for all your problems.
         </motion.p>
 
         {/* Contact Form */}
@@ -268,7 +268,7 @@ const ContactSection = () => {
             } : {}}
             whileTap={!isSubmitting ? { scale: 0.98 } : {}}
           >
-            {isSubmitting ? 'भेजा जा रहा है... ⏳' : 'Send Message 🚀'}
+            {isSubmitting ? 'Sending... ⏳' : 'Send Message 🚀'}
           </motion.button>
 
           {/* Status Messages */}
@@ -279,7 +279,7 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              🎉 Message sent successfully! हम जल्दी ही आपसे contact करेंगे।
+              🎉 Message sent successfully! We will contact you soon.
             </motion.div>
           )}
 
@@ -290,7 +290,7 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              ❌ कुछ गलत हुआ है। Please try again later.
+              ❌ Something went wrong. Please try again later.
             </motion.div>
           )}
         </motion.form>
@@ -317,8 +317,8 @@ const ContactSection = () => {
             lineHeight: '1.6',
           }}>
             💡 <strong>Quick Response Guaranteed!</strong><br />
-            Event registration, dress code queries, venue details, या कोई भी doubt हो - 
-            हम 24 hours में reply करेंगे! 🌟
+            Event registration, dress code queries, venue details, or any doubts - 
+            we will reply within 24 hours! 🌟
           </p>
         </motion.div>
       </div>
