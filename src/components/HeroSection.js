@@ -293,6 +293,101 @@ const HeroSection = () => {
         {/* Countdown Timer */}
         <CountdownTimer />
 
+        {/* CTA Buttons */}
+        <motion.div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: 'clamp(1rem, 4vw, 2rem)',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: 'clamp(2rem, 6vw, 3rem) 0',
+            flexWrap: 'wrap',
+          }}
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+          {/* Registration Button with Glow */}
+          <motion.button
+            style={{
+              padding: 'clamp(0.875rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)',
+              background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+              color: 'white',
+              borderRadius: '50px',
+              fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+              fontWeight: '600',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 0 20px rgba(255, 107, 107, 0.5)',
+              position: 'relative',
+              overflow: 'hidden',
+              minWidth: 'clamp(140px, 30vw, 180px)',
+            }}
+            onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 30px rgba(255, 107, 107, 0.8)',
+            }}
+            whileTap={{ scale: 0.95 }}
+            animate={{
+              boxShadow: [
+                '0 0 20px rgba(255, 107, 107, 0.5)', 
+                '0 0 30px rgba(255, 107, 107, 0.8)', 
+                '0 0 20px rgba(255, 107, 107, 0.5)'
+              ],
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            {/* Pulsing Glow Effect */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                inset: '-2px',
+                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                borderRadius: '50px',
+                opacity: 0.3,
+                zIndex: -1,
+              }}
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+              }}
+            />
+            ✨ Registration
+          </motion.button>
+
+          {/* Activity Participation Button */}
+          <motion.button
+            style={{
+              padding: 'clamp(0.875rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem)',
+              background: 'linear-gradient(45deg, #45b7d1, #96ceb4)',
+              color: 'white',
+              borderRadius: '50px',
+              fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+              fontWeight: '600',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 0 15px rgba(69, 183, 209, 0.5)',
+              minWidth: 'clamp(140px, 30vw, 180px)',
+            }}
+            onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 25px rgba(69, 183, 209, 0.8)',
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            🎯 Activity Participation
+          </motion.button>
+        </motion.div>
+
         {/* Scroll indicator */}
         <motion.div
           style={heroStyles.scrollIndicator}
