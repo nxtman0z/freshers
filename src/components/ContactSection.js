@@ -318,7 +318,7 @@ const ContactSection = () => {
           }}>
             💡 <strong>Quick Response Guaranteed!</strong><br />
             Event registration, dress code queries, venue details, or any doubts - 
-            we will reply within 24 hours! 🌟
+            we will reply within Minutes 🤍
           </p>
         </motion.div>
       </div>

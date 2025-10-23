@@ -5,222 +5,327 @@ const EventSection = () => {
   const eventStyles = {
     section: {
       padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
-      background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+      background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)',
       position: 'relative',
       overflow: 'hidden',
+      minHeight: '100vh',
     },
+    
+    // Background elements
+    backgroundOverlay: {
+      position: 'absolute',
+      inset: 0,
+      background: 'radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)',
+      opacity: 0.6,
+    },
+    
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
       position: 'relative',
       zIndex: 10,
     },
+    
+    // Header styles
+    header: {
+      textAlign: 'center',
+      marginBottom: 'clamp(3rem, 6vw, 4rem)',
+    },
+    
     title: {
-      fontSize: 'clamp(2rem, 8vw, 4rem)',
+      fontSize: 'clamp(2.5rem, 8vw, 4rem)',
       fontWeight: 'bold',
-      background: 'linear-gradient(45deg, #8b5cf6, #ec4899, #00d9ff)',
+      background: 'linear-gradient(45deg, #6366f1, #14b8a6, #3b82f6)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
-      textAlign: 'center',
-      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
-      fontFamily: 'Orbitron, monospace',
+      backgroundSize: '200% 200%',
+      fontFamily: 'Inter, sans-serif',
+      letterSpacing: '-0.02em',
+      lineHeight: '1.2',
     },
+    
     subtitle: {
       fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-      color: '#94a3b8',
-      textAlign: 'center',
-      marginBottom: 'clamp(2rem, 6vw, 4rem)',
-      maxWidth: '600px',
-      margin: '0 auto clamp(2rem, 6vw, 4rem) auto',
-      lineHeight: '1.6',
+      color: 'rgba(255, 255, 255, 0.7)',
+      marginTop: '1rem',
+      fontFamily: 'Inter, sans-serif',
+      letterSpacing: '0.01em',
     },
-    mainCard: {
-      background: 'rgba(255, 255, 255, 0.1)',
-      backdropFilter: 'blur(15px)',
-      border: '1px solid rgba(255, 255, 255, 0.3)',
-      borderRadius: '25px',
-      padding: 'clamp(2rem, 6vw, 3rem)',
-      textAlign: 'center',
-      marginBottom: 'clamp(2rem, 6vw, 3rem)',
+    
+    // Cards container
+    cardsContainer: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: 'clamp(1.5rem, 4vw, 2.5rem)',
+      maxWidth: '900px',
+      margin: '0 auto',
+    },
+    
+    // Card base styles
+    cardBase: {
+      background: 'rgba(255, 255, 255, 0.08)',
+      backdropFilter: 'blur(12px)',
+      borderRadius: '24px',
+      padding: 'clamp(1.5rem, 4vw, 2.5rem)',
       position: 'relative',
       overflow: 'hidden',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      willChange: 'transform',
     },
+    
+    // Card 1 - Poster Release (Purple-Blue)
     posterCard: {
-      background: 'rgba(255, 107, 107, 0.1)',
-      backdropFilter: 'blur(15px)',
-      border: '1px solid rgba(255, 107, 107, 0.3)',
-      borderRadius: '20px',
-      padding: 'clamp(1.5rem, 5vw, 2.5rem)',
+      background: 'rgba(99, 102, 241, 0.15)',
+      border: '1px solid rgba(99, 102, 241, 0.3)',
+      boxShadow: '0 8px 32px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+    },
+    
+    // Card 2 - Main Event (Teal-Emerald) 
+    mainCard: {
+      background: 'rgba(20, 184, 166, 0.15)',
+      border: '1px solid rgba(20, 184, 166, 0.3)',
+      boxShadow: '0 8px 32px rgba(20, 184, 166, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+    },
+    
+    // Card content
+    cardIcon: {
+      fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+      marginBottom: '1rem',
+      display: 'block',
       textAlign: 'center',
-      marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
-      position: 'relative',
-      overflow: 'hidden',
     },
-    posterTitle: {
-      fontSize: 'clamp(1.25rem, 4vw, 2rem)',
-      fontWeight: 'bold',
-      color: '#ff6b6b',
-      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
-      textShadow: '0 0 15px rgba(255, 107, 107, 0.5)',
-    },
-    posterDate: {
-      fontSize: 'clamp(1rem, 3vw, 1.5rem)',
-      color: '#ffd700',
+    
+    cardTitle: {
+      fontSize: 'clamp(1.25rem, 4vw, 1.5rem)',
       fontWeight: '600',
-      marginBottom: '0.5rem',
+      color: 'white',
+      marginBottom: '1rem',
+      textAlign: 'center',
+      fontFamily: 'Inter, sans-serif',
+      letterSpacing: '-0.01em',
+      textShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
     },
-    posterTime: {
-      fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)',
-      color: '#94a3b8',
-      marginBottom: '0.5rem',
-    },
-    posterVenue: {
-      fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)',
-      color: '#8b5cf6',
-      fontWeight: '500',
-    },
+    
     eventDate: {
-      fontSize: 'clamp(1.5rem, 6vw, 3rem)',
-      fontWeight: 'bold',
+      fontSize: 'clamp(1.5rem, 5vw, 2rem)',
+      fontWeight: '700',
       color: '#00d9ff',
-      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
-      fontFamily: 'Orbitron, monospace',
-      textShadow: '0 0 20px rgba(0, 217, 255, 0.5)',
+      textAlign: 'center',
+      marginBottom: '0.75rem',
+      textShadow: '0 0 15px rgba(0, 217, 255, 0.5)',
+      fontFamily: 'Inter, sans-serif',
     },
+    
     eventTime: {
-      fontSize: 'clamp(1.125rem, 4vw, 1.5rem)',
-      color: '#ffd700',
-      marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
-      fontWeight: '600',
-    },
-    eventVenue: {
       fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-      color: '#e2e8f0',
-      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
-    },
-    hostInfo: {
-      fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
       color: '#8b5cf6',
+      textAlign: 'center',
+      marginBottom: '0.75rem',
       fontWeight: '500',
-      marginBottom: 'clamp(1rem, 3vw, 2rem)',
     },
+    
+    eventVenue: {
+      fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+      color: 'rgba(255, 255, 255, 0.8)',
+      textAlign: 'center',
+      marginBottom: '0.5rem',
+    },
+    
+    eventHost: {
+      fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+      color: '#f43f5e',
+      textAlign: 'center',
+      fontWeight: '500',
+      marginBottom: '1rem',
+    },
+    
     disclaimer: {
       fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
-      color: '#64748b',
+      color: 'rgba(255, 255, 255, 0.6)',
+      textAlign: 'center',
       fontStyle: 'italic',
-      padding: 'clamp(0.75rem, 3vw, 1rem)',
-      background: 'rgba(255, 255, 255, 0.05)',
-      borderRadius: '10px',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
+      lineHeight: '1.4',
     },
   };
 
-
-
-  return (
-    <section style={eventStyles.section}>
-      {/* Animated background grid */}
-      <div style={{ position: 'absolute', inset: 0, opacity: 0.1 }}>
+  // Floating particles component
+  const FloatingParticles = () => (
+    <div style={{
+      position: 'absolute',
+      inset: 0,
+      overflow: 'hidden',
+      pointerEvents: 'none',
+    }}>
+      {[...Array(20)].map((_, i) => (
         <motion.div
+          key={i}
           style={{
             position: 'absolute',
-            inset: 0,
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(139, 92, 246, 0.4) 1px, transparent 0)`,
-            backgroundSize: '50px 50px',
+            width: '4px',
+            height: '4px',
+            background: 'rgba(255, 255, 255, 0.3)',
+            borderRadius: '50%',
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
           }}
           animate={{
-            backgroundPosition: ['0px 0px', '50px 50px'],
+            x: [0, 30, -30, 0],
+            y: [0, -50, 50, 0],
+            opacity: [0.3, 0.8, 0.3],
           }}
           transition={{
-            duration: 20,
+            duration: Math.random() * 8 + 6,
             repeat: Infinity,
             ease: 'linear',
           }}
         />
-      </div>
+      ))}
+    </div>
+  );
+
+  // Animated border component for cards
+  const AnimatedBorder = ({ gradient }) => (
+    <motion.div
+      style={{
+        position: 'absolute',
+        inset: '-1px',
+        borderRadius: '24px',
+        background: gradient,
+        padding: '1px',
+        zIndex: -1,
+      }}
+      animate={{
+        background: [gradient, gradient.replace('45deg', '135deg'), gradient.replace('45deg', '225deg'), gradient],
+      }}
+      transition={{
+        duration: 8,
+        repeat: Infinity,
+        ease: 'linear',
+      }}
+    />
+  );
+
+  return (
+    <section style={eventStyles.section}>
+      {/* Background overlay */}
+      <div style={eventStyles.backgroundOverlay} />
+      
+      {/* Floating particles */}
+      <FloatingParticles />
+
+      {/* Animated background waves */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(120deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1))',
+          opacity: 0.4,
+        }}
+        animate={{
+          background: [
+            'linear-gradient(120deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1))',
+            'linear-gradient(240deg, rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1))',
+            'linear-gradient(360deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1))',
+          ],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      />
 
       <div style={eventStyles.container}>
-        {/* Title */}
-        <motion.h2
-          style={{
-            ...eventStyles.title,
-            backgroundSize: '200% 200%',
-          }}
+        {/* Header */}
+        <motion.div
+          style={eventStyles.header}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          animate={{
-            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-          }}
-        >
-          Event Info 📅
-        </motion.h2>
-
-        <motion.p
-          style={eventStyles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          Mark your calendars! Here's everything you need to know about UDBHAV 2.0
-        </motion.p>
-
-        {/* Poster Release Card */}
-        <motion.div
-          style={eventStyles.posterCard}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -5, scale: 1.02 }}
-        >
-          {/* Animated border glow */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 212, 0, 0.2), rgba(139, 92, 246, 0.2))',
-              borderRadius: '20px',
-            }}
+          <motion.h2
+            style={eventStyles.title}
             animate={{
-              background: [
-                'linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 212, 0, 0.2), rgba(139, 92, 246, 0.2))',
-                'linear-gradient(45deg, rgba(255, 212, 0, 0.2), rgba(139, 92, 246, 0.2), rgba(255, 107, 107, 0.2))',
-                'linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(255, 107, 107, 0.2), rgba(255, 212, 0, 0.2))',
-              ],
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
             transition={{
-              duration: 6,
+              duration: 8,
               repeat: Infinity,
               ease: 'linear',
             }}
-          />
+          >
+            Event Info 📅
+          </motion.h2>
+          <motion.p
+            style={eventStyles.subtitle}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Mark your calendars for these exciting events!
+          </motion.p>
+        </motion.div>
 
-          <div style={{ position: 'relative', zIndex: 10 }}>
-            <motion.div
-              style={eventStyles.posterTitle}
+        {/* Cards Container */}
+        <div style={eventStyles.cardsContainer}>
+          
+          {/* Poster Release Card */}
+          <motion.div
+            style={{
+              ...eventStyles.cardBase,
+              ...eventStyles.posterCard,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.2,
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }
+            }}
+            viewport={{ once: true }}
+            whileHover={{
+              y: -8,
+              boxShadow: '0 12px 48px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              scale: 1.02,
+            }}
+            animate={{
+              y: [0, -3, 0],
+            }}
+          >
+            <AnimatedBorder gradient="linear-gradient(45deg, #6366f1, #3b82f6, #6366f1)" />
+            
+            <motion.span
+              style={eventStyles.cardIcon}
               animate={{
-                textShadow: [
-                  '0 0 15px rgba(255, 107, 107, 0.5)',
-                  '0 0 25px rgba(255, 107, 107, 0.8)',
-                  '0 0 15px rgba(255, 107, 107, 0.5)',
-                ],
+                scale: [1, 1.1, 1],
+                opacity: [0.8, 1, 0.8],
               }}
               transition={{
                 duration: 2.5,
                 repeat: Infinity,
               }}
             >
-              🎊 Poster Release Event
-            </motion.div>
-
+              🌈
+            </motion.span>
+            
+            <h3 style={eventStyles.cardTitle}>Poster Release Event</h3>
+            
             <motion.div
-              style={eventStyles.posterDate}
+              style={eventStyles.eventDate}
               animate={{
-                color: ['#ffd700', '#ffed4e', '#ffd700'],
+                textShadow: [
+                  '0 0 15px rgba(0, 217, 255, 0.5)',
+                  '0 0 25px rgba(0, 217, 255, 0.8)',
+                  '0 0 15px rgba(0, 217, 255, 0.5)',
+                ],
               }}
               transition={{
                 duration: 2,
@@ -229,101 +334,106 @@ const EventSection = () => {
             >
               📅 Saturday, 25th October 2025
             </motion.div>
+            
+            <div style={eventStyles.eventTime}>⏰ 4:00 PM</div>
+            <div style={eventStyles.eventVenue}>📍 In front of Aryabhatta Building</div>
+          </motion.div>
 
-            <div style={eventStyles.posterTime}>
-              ⏰ 4.00 PM
-            </div>
-
-            <div style={eventStyles.posterVenue}>
-              📍 In front of Aryabhatta Building
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Main Event Card */}
-        <motion.div
-          style={eventStyles.mainCard}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -10 }}
-        >
-          {/* Gradient background animation */}
+          {/* Main Event Card */}
           <motion.div
             style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(0, 217, 255, 0.1), rgba(255, 212, 0, 0.1))',
-              borderRadius: '25px',
+              ...eventStyles.cardBase,
+              ...eventStyles.mainCard,
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.4,
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2,
+              }
+            }}
+            viewport={{ once: true }}
+            whileHover={{
+              y: -8,
+              boxShadow: '0 12px 48px rgba(20, 184, 166, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              scale: 1.02,
             }}
             animate={{
-              background: [
-                'linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(0, 217, 255, 0.1), rgba(255, 212, 0, 0.1))',
-                'linear-gradient(45deg, rgba(0, 217, 255, 0.1), rgba(255, 212, 0, 0.1), rgba(139, 92, 246, 0.1))',
-                'linear-gradient(45deg, rgba(255, 212, 0, 0.1), rgba(139, 92, 246, 0.1), rgba(0, 217, 255, 0.1))',
-              ],
+              y: [0, -3, 0],
             }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-
-          <div style={{ position: 'relative', zIndex: 10 }}>
+          >
+            <AnimatedBorder gradient="linear-gradient(45deg, #14b8a6, #10b981, #14b8a6)" />
+            
+            <motion.span
+              style={eventStyles.cardIcon}
+              animate={{
+                y: [0, -5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            >
+              📅
+            </motion.span>
+            
+            <h3 style={eventStyles.cardTitle}>UDBHAV 2.0 - Freshers Welcome</h3>
+            
             <motion.div
               style={eventStyles.eventDate}
               animate={{
                 textShadow: [
-                  '0 0 20px rgba(0, 217, 255, 0.5)',
-                  '0 0 40px rgba(0, 217, 255, 0.8)',
-                  '0 0 20px rgba(0, 217, 255, 0.5)',
+                  '0 0 15px rgba(0, 217, 255, 0.5)',
+                  '0 0 25px rgba(0, 217, 255, 0.8)',
+                  '0 0 15px rgba(0, 217, 255, 0.5)',
                 ],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+              }}
+            >
+              📅 29th October 2025
+            </motion.div>
+            
+            <div style={eventStyles.eventTime}>⏰ 11.00 AM Onwards</div>
+            <div style={eventStyles.eventVenue}>📍 Gym Area, CUTM Campus</div>
+            
+            <motion.div
+              style={eventStyles.eventHost}
+              animate={{
+                scale: [1, 1.05, 1],
               }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
               }}
             >
-              📅 29th October 2025
+              👥 Hosted by MCA Seniors <motion.span
+                animate={{
+                  scale: [1, 1.2, 1],
+                  color: ['#f43f5e', '#ff6b9d', '#f43f5e'],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                }}
+              >
+                ❤️
+              </motion.span>
             </motion.div>
-
-            <motion.div
-              style={eventStyles.eventTime}
-              animate={{
-                color: ['#ffd700', '#ffed4e', '#ffd700'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-              }}
-            >
-              ⏰ 11.00 AM Onwards
-            </motion.div>
-
-            <div style={eventStyles.eventVenue}>
-              📍 Gym Area, CUTM Campus
-            </div>
-
-            <div style={eventStyles.hostInfo}>
-               Hosted by MCA Seniors ❤️
-            </div>
-
-            <motion.div
-              style={eventStyles.disclaimer}
-              animate={{
-                borderColor: ['rgba(255, 255, 255, 0.1)', 'rgba(139, 92, 246, 0.3)', 'rgba(255, 255, 255, 0.1)'],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-              }}
-            >
+            
+            <div style={eventStyles.disclaimer}>
               *Place and date may change as per university schedule.
-            </motion.div>
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
