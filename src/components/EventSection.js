@@ -75,11 +75,11 @@ const EventSection = () => {
       willChange: 'transform',
     },
     
-    // Card 1 - Poster Release (Purple-Blue)
+    // Card 1 - Poster Release (Teal-Emerald - Same as Main Event)
     posterCard: {
-      background: 'rgba(99, 102, 241, 0.15)',
-      border: '1px solid rgba(99, 102, 241, 0.3)',
-      boxShadow: '0 8px 32px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+      background: 'rgba(20, 184, 166, 0.15)',
+      border: '1px solid rgba(20, 184, 166, 0.3)',
+      boxShadow: '0 8px 32px rgba(20, 184, 166, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
     },
     
     // Card 2 - Main Event (Teal-Emerald) 
@@ -293,14 +293,14 @@ const EventSection = () => {
             viewport={{ once: true }}
             whileHover={{
               y: -8,
-              boxShadow: '0 12px 48px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 12px 48px rgba(20, 184, 166, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
               scale: 1.02,
             }}
             animate={{
               y: [0, -3, 0],
             }}
           >
-            <AnimatedBorder gradient="linear-gradient(45deg, #6366f1, #3b82f6, #6366f1)" />
+            <AnimatedBorder gradient="linear-gradient(45deg, #14b8a6, #10b981, #14b8a6)" />
             
             <motion.span
               style={eventStyles.cardIcon}
