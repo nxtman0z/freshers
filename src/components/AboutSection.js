@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const AboutSection = () => {
   const aboutStyles = {
     section: {
-      padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
-      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%)',
+      padding: 'clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem)',
+      background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #1e3a8a 75%, #0f172a 100%)',
       position: 'relative',
       overflow: 'hidden',
       minHeight: '100vh',
@@ -16,396 +16,291 @@ const AboutSection = () => {
       position: 'relative',
       zIndex: 10,
     },
-    title: {
-      fontSize: 'clamp(2.5rem, 10vw, 5rem)',
+    // Main Welcome Title
+    welcomeTitle: {
+      fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
       fontWeight: '900',
-      background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57)',
-      backgroundSize: '400% 400%',
+      background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffd93d, #6c5ce7)',
+      backgroundSize: '300% 300%',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       textAlign: 'center',
-      marginBottom: 'clamp(1rem, 3vw, 2rem)',
+      marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)',
       fontFamily: 'Orbitron, monospace',
-      textShadow: '0 0 50px rgba(255, 107, 107, 0.5)',
-      transform: 'perspective(1000px) rotateX(15deg)',
-      transformStyle: 'preserve-3d',
-      filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5))',
+      textShadow: '0 0 40px rgba(255, 107, 107, 0.3)',
+      letterSpacing: '2px',
     },
-    subtitle: {
-      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-      color: '#94a3b8',
-      textAlign: 'center',
-      marginBottom: 'clamp(2rem, 6vw, 3rem)',
-      maxWidth: '600px',
-      margin: '0 auto clamp(2rem, 6vw, 3rem) auto',
-      lineHeight: '1.6',
-    },
-    gridContainer: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-      gap: 'clamp(1rem, 4vw, 2rem)',
-      marginBottom: 'clamp(2rem, 6vw, 3rem)',
-    },
-    card: {
-      background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+    // Hero Message Box
+    heroMessageBox: {
+      background: 'rgba(255, 255, 255, 0.08)',
       backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.3)',
-      borderRadius: '25px',
-      padding: 'clamp(1.5rem, 4vw, 2rem)',
-      textAlign: 'left',
+      border: '1px solid rgba(255, 255, 255, 0.15)',
+      borderRadius: '24px',
+      padding: 'clamp(2rem, 5vw, 3rem)',
+      marginBottom: 'clamp(2rem, 5vw, 3rem)',
+      textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
-      transform: 'perspective(1000px) rotateY(5deg)',
-      transformStyle: 'preserve-3d',
-      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+      boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+    },
+    heroHeading: {
+      fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
+      fontWeight: 'bold',
+      color: '#ffd93d',
+      marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
+      textShadow: '0 0 20px rgba(255, 217, 61, 0.5)',
+    },
+    heroMessage: {
+      fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+      color: '#e2e8f0',
+      lineHeight: '1.7',
+      marginBottom: '1rem',
+    },
+    // Cards Grid Container
+    cardsContainer: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: 'clamp(1.5rem, 4vw, 2.5rem)',
+      marginTop: 'clamp(2rem, 5vw, 3rem)',
+    },
+    // Glassmorphism Card Base
+    card: {
+      background: 'rgba(255, 255, 255, 0.06)',
+      backdropFilter: 'blur(20px)',
+      border: '1px solid rgba(255, 255, 255, 0.12)',
+      borderRadius: '20px',
+      padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+      position: 'relative',
+      overflow: 'hidden',
+      cursor: 'pointer',
+      transition: 'all 0.4s cubic-bezier(0.23, 1, 0.320, 1)',
+      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+    },
+    cardIcon: {
+      fontSize: 'clamp(2rem, 5vw, 3rem)',
+      marginBottom: '1rem',
+      display: 'block',
+      textAlign: 'center',
     },
     cardTitle: {
-      fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
+      fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
       fontWeight: 'bold',
       color: '#ffffff',
-      marginBottom: '1rem',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      flexWrap: 'wrap',
+      marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
+      textAlign: 'center',
     },
-    cardContent: {
-      color: '#d1d5db',
-      lineHeight: '1.6',
+    rulesList: {
+      listStyle: 'none',
+      padding: 0,
+      margin: 0,
     },
     ruleItem: {
       display: 'flex',
-      alignItems: 'flex-start',
-      gap: '0.75rem',
-      marginBottom: '0.75rem',
-      padding: 'clamp(0.5rem, 2vw, 0.75rem)',
-      borderRadius: '8px',
-      background: 'rgba(255, 255, 255, 0.05)',
+      alignItems: 'center',
+      padding: '0.75rem 0',
+      fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
     },
     ruleIcon: {
-      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-      marginTop: '0.125rem',
-      flexShrink: 0,
+      marginRight: '0.75rem',
+      fontSize: '1.125rem',
+      minWidth: '24px',
     },
-    ruleText: {
-      color: '#e2e8f0',
-      fontSize: 'clamp(0.8rem, 2.5vw, 0.9rem)',
-      lineHeight: '1.5',
+    allowedRule: {
+      color: '#4ade80',
     },
-    welcomeText: {
-      fontSize: 'clamp(0.95rem, 3vw, 1.1rem)',
-      color: '#f1f5f9',
-      textAlign: 'center',
-      marginBottom: 'clamp(2rem, 6vw, 3rem)',
-      lineHeight: '1.8',
-      padding: 'clamp(1.5rem, 4vw, 2rem)',
-      background: 'linear-gradient(145deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.15))',
-      borderRadius: '20px',
-      border: '1px solid rgba(139, 92, 246, 0.4)',
-      position: 'relative',
-      overflow: 'hidden',
-      transform: 'perspective(1000px) rotateX(-5deg)',
-      boxShadow: '0 15px 35px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+    notAllowedRule: {
+      color: '#f87171',
     },
   };
 
+  // Dress Code Data
   const dressCodeRules = [
-    { icon: '👔', text: 'Boys: Casual or semi-formal (Jeans, Shirts, Trousers)' },
-    { icon: '❌', text: 'Boys - Not allowed: Kurta, Pyjama, Dhoti' },
-    { icon: '👗', text: 'Girls: Casual or semi-formal (Formal Dresses, Suits)' },
-    { icon: '❌', text: 'Girls - Not allowed: Saree, Sleeveless, (No revealing dresses)' },
+    { type: 'allowed', category: 'Boys', text: 'Casual or semi-formal (Jeans, Shirts, Trousers)', icon: '✅' },
+    { type: 'notAllowed', category: 'Boys', text: 'Not allowed: Kurta, Pyjama, Dhoti', icon: '❌' },
+    { type: 'allowed', category: 'Girls', text: 'Casual or semi-formal (Formal Dresses, suits)', icon: '✅' },
+    { type: 'notAllowed', category: 'Girls', text: 'Not allowed: Saree, Sleeveless, (No revealing dresses)', icon: '❌' },
   ];
 
-  const generalRules = [
-    { icon: '❌', text: 'Offensive behavior strictly prohibited' },
-    { icon: '❌', text: 'Misconduct is taken seriously' },
-    { icon: '❌', text: 'Any misconduct towards event organizers or university staff will lead to strict action' },
-    { icon: '✅', text: 'Registration through university email address only is valid' },
-    { icon: '✅', text: 'University ID card mandatory to attend the fresher\'s party' },
-    { icon: '✅', text: 'Students without a university ID should contact the event organizers' },
-    { icon: '✅', text: 'Follow instructions & enjoy responsibly' },
+  // Rules & Guidelines Data
+  const rulesGuidelines = [
+    { type: 'notAllowed', text: 'Offensive behavior strictly prohibited', icon: '❌' },
+    { type: 'notAllowed', text: 'Misconduct is taken seriously', icon: '❌' },
+    { type: 'notAllowed', text: 'Any misconduct towards event organizers or university staff will lead to strict action', icon: '❌' },
+    { type: 'allowed', text: 'Registration through university email address only is valid', icon: '✅' },
+    { type: 'allowed', text: 'University ID card mandatory to attend the fresher\'s party', icon: '✅' },
+    { type: 'allowed', text: 'Students without a university ID should contact the event organizers', icon: '✅' },
+    { type: 'allowed', text: 'Follow instructions & enjoy responsibly', icon: '✅' },
   ];
 
   return (
     <section style={aboutStyles.section}>
-      {/* Animated Background Gradient */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57)',
-          backgroundSize: '400% 400%',
-          opacity: 0.1,
-        }}
-        animate={{
-          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
-
-      {/* Floating Geometric Shapes */}
-      <div style={{ position: 'absolute', inset: 0 }}>
-        {[...Array(8)].map((_, i) => (
+      {/* Floating Particles Background */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+        {[...Array(50)].map((_, i) => (
           <motion.div
-            key={`shape-${i}`}
+            key={i}
             style={{
               position: 'absolute',
-              width: `${30 + i * 10}px`,
-              height: `${30 + i * 10}px`,
-              border: '2px solid rgba(255, 107, 107, 0.3)',
-              borderRadius: i % 2 === 0 ? '50%' : '10px',
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i * 15) % 60}%`,
-            }}
-            animate={{
-              rotate: [0, 360],
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.7, 0.3],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              delay: i * 0.5,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Enhanced Particles */}
-      <div style={{ position: 'absolute', inset: 0 }}>
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={`particle-${i}`}
-            style={{
-              position: 'absolute',
-              width: 'clamp(3px, 1.5vw, 6px)',
-              height: 'clamp(3px, 1.5vw, 6px)',
-              background: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'][i % 5],
+              width: Math.random() * 4 + 1 + 'px',
+              height: Math.random() * 4 + 1 + 'px',
+              background: `hsl(${Math.random() * 60 + 200}, 70%, 80%)`,
               borderRadius: '50%',
-              opacity: 0.6,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              boxShadow: `0 0 10px ${['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'][i % 5]}`,
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
             }}
             animate={{
-              y: [0, -150, 0],
-              x: [0, Math.sin(i) * 50, 0],
-              opacity: [0.6, 1, 0.6],
-              scale: [1, 1.5, 1],
+              y: [-20, -100, -20],
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0],
             }}
             transition={{
-              duration: 6 + Math.random() * 4,
+              duration: Math.random() * 10 + 10,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: Math.random() * 10,
             }}
           />
         ))}
       </div>
 
       <div style={aboutStyles.container}>
-        {/* Title */}
-        <motion.h2
-          style={aboutStyles.title}
-          initial={{ opacity: 0, y: 50, rotateX: 90 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 15 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
+        {/* Main Welcome Title */}
+        <motion.h1
+          style={aboutStyles.welcomeTitle}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           animate={{
             backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
           }}
-          whileHover={{
-            scale: 1.05,
-            rotateX: 0,
-            filter: 'drop-shadow(0 15px 30px rgba(255, 107, 107, 0.8))',
-          }}
         >
-          Welcome Freshers! 🎉✨
-        </motion.h2>
+          Welcome Freshers! 🎉 ✨
+        </motion.h1>
 
-        <motion.p
-          style={aboutStyles.subtitle}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          Get ready for the most epic welcome party of your college life!
-        </motion.p>
-
-        {/* Welcome Message */}
+        {/* Hero Message Box */}
         <motion.div
-          style={aboutStyles.welcomeText}
-          initial={{ opacity: 0, scale: 0.8, rotateX: -45 }}
-          whileInView={{ opacity: 1, scale: 1, rotateX: -5 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          style={aboutStyles.heroMessageBox}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          whileHover={{
-            scale: 1.02,
-            rotateX: 0,
-            boxShadow: '0 25px 50px rgba(139, 92, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-          }}
+          whileHover={{ scale: 1.02, y: -5 }}
         >
-          {/* Animated Background Shine */}
+          {/* Gradient overlay animation */}
           <motion.div
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-              borderRadius: '20px',
+              background: 'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
+              borderRadius: '24px',
             }}
             animate={{
-              x: ['-100%', '200%'],
+              background: [
+                'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
+                'linear-gradient(45deg, rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1))',
+                'linear-gradient(45deg, rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1))',
+              ],
             }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatDelay: 2,
-            }}
+            transition={{ duration: 8, repeat: Infinity }}
           />
-          🌟 <strong>Hey Future Tech Stars!</strong> 🌟
-          <br /><br />
-          Ready to dive into the amazing world of MCA? UDBHAV 2.0 isn't just another orientation - 
-          it's your official entry into the coolest department on campus! We've got games, fun activities, 
-          networking sessions, and maybe some surprises that'll make you go "WOW!" 
-          <br /><br />
-          So put on your best outfit (following our dress code, of course 😉), bring your brightest smile, 
-          and get ready to make memories that'll last a lifetime! 🎊
+
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <motion.h2
+              style={aboutStyles.heroHeading}
+              animate={{
+                textShadow: [
+                  '0 0 20px rgba(255, 217, 61, 0.5)',
+                  '0 0 30px rgba(255, 217, 61, 0.8)',
+                  '0 0 20px rgba(255, 217, 61, 0.5)',
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              🌟 Hey Future Tech Stars! 🌟
+            </motion.h2>
+
+            <div style={aboutStyles.heroMessage}>
+              <p>🎓 Welcome to <strong>UDBHAV 2.0</strong> - where your MCA journey begins with excitement, learning, and endless possibilities!</p>
+              <p>🚀 Get ready for an amazing tech adventure filled with coding challenges, innovative projects, and lifelong friendships.</p>
+              <p>💫 Remember to follow our dress code and guidelines to make this celebration perfect for everyone!</p>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Cards Grid */}
-        <div style={aboutStyles.gridContainer}>
+        {/* Cards Container */}
+        <div style={aboutStyles.cardsContainer}>
           {/* Dress Code Card */}
           <motion.div
-            style={aboutStyles.card}
-            initial={{ opacity: 0, y: 50, rotateY: -30 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: 5 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            whileHover={{ 
-              y: -15, 
-              scale: 1.05,
-              rotateY: 0,
-              boxShadow: '0 30px 60px rgba(255, 107, 107, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-              filter: 'brightness(1.1)',
+            style={{
+              ...aboutStyles.card,
+              background: 'rgba(255, 107, 107, 0.08)',
+              border: '1px solid rgba(255, 107, 107, 0.2)',
             }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, y: -10 }}
           >
-            {/* Card Glow Effect */}
-            <motion.div
-              style={{
-                position: 'absolute',
-                inset: '-2px',
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1)',
-                borderRadius: '25px',
-                opacity: 0,
-                zIndex: -1,
-              }}
-              whileHover={{ opacity: 0.3 }}
-              transition={{ duration: 0.3 }}
-            />
-            <h3 style={aboutStyles.cardTitle}>
-              👔 Dress Code
-            </h3>
-            <div style={aboutStyles.cardContent}>
+            <div style={aboutStyles.cardIcon}>👔</div>
+            <h3 style={aboutStyles.cardTitle}>Dress Code</h3>
+            <ul style={aboutStyles.rulesList}>
               {dressCodeRules.map((rule, index) => (
-                <div key={index} style={aboutStyles.ruleItem}>
+                <motion.li
+                  key={index}
+                  style={{
+                    ...aboutStyles.ruleItem,
+                    ...(rule.type === 'allowed' ? aboutStyles.allowedRule : aboutStyles.notAllowedRule),
+                  }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
                   <span style={aboutStyles.ruleIcon}>{rule.icon}</span>
-                  <span style={aboutStyles.ruleText}>{rule.text}</span>
-                </div>
+                  <strong>{rule.category}:</strong> {rule.text}
+                </motion.li>
               ))}
-            </div>
+            </ul>
           </motion.div>
 
-          {/* Rules Card */}
-          <motion.div
-            style={aboutStyles.card}
-            initial={{ opacity: 0, y: 50, rotateY: 30 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: -5 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={{ 
-              y: -15, 
-              scale: 1.05,
-              rotateY: 0,
-              boxShadow: '0 30px 60px rgba(78, 205, 196, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-              filter: 'brightness(1.1)',
-            }}
-          >
-            {/* Card Glow Effect */}
-            <motion.div
-              style={{
-                position: 'absolute',
-                inset: '-2px',
-                background: 'linear-gradient(45deg, #4ecdc4, #45b7d1, #96ceb4)',
-                borderRadius: '25px',
-                opacity: 0,
-                zIndex: -1,
-              }}
-              whileHover={{ opacity: 0.3 }}
-              transition={{ duration: 0.3 }}
-            />
-            <h3 style={aboutStyles.cardTitle}>
-              📋 Rules & Guidelines
-            </h3>
-            <div style={aboutStyles.cardContent}>
-              {generalRules.map((rule, index) => (
-                <div key={index} style={aboutStyles.ruleItem}>
-                  <span style={aboutStyles.ruleIcon}>{rule.icon}</span>
-                  <span style={aboutStyles.ruleText}>{rule.text}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Fun Message */}
-        <motion.div
-          style={{
-            ...aboutStyles.welcomeText,
-            background: 'linear-gradient(145deg, rgba(0, 217, 255, 0.2), rgba(254, 202, 87, 0.15))',
-            border: '1px solid rgba(0, 217, 255, 0.4)',
-            transform: 'perspective(1000px) rotateX(5deg)',
-          }}
-          initial={{ opacity: 0, y: 50, rotateX: 45 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 5 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{
-            scale: 1.02,
-            rotateX: 0,
-            boxShadow: '0 25px 50px rgba(0, 217, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-          }}
-        >
-          {/* Animated Border Glow */}
+          {/* Rules & Guidelines Card */}
           <motion.div
             style={{
-              position: 'absolute',
-              inset: '-2px',
-              background: 'linear-gradient(45deg, #00d9ff, #feca57, #00d9ff)',
-              borderRadius: '20px',
-              opacity: 0,
-              zIndex: -1,
+              ...aboutStyles.card,
+              background: 'rgba(108, 92, 231, 0.08)',
+              border: '1px solid rgba(108, 92, 231, 0.2)',
             }}
-            animate={{
-              opacity: [0, 0.3, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-            }}
-          />
-          🎪 <strong>What to Expect?</strong> 🎪
-          <br /><br />
-          Ice-breaking games • Team building activities • Tech talks • Cultural performances • 
-          Prize distributions • Networking sessions • Photo booths • Live entertainment • 
-          And lots of FUN! 🎉
-          <br /><br />
-          <em>Remember: This is YOUR day to shine and make new friends! 🌟</em>
-        </motion.div>
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, y: -10 }}
+          >
+            <div style={aboutStyles.cardIcon}>📋</div>
+            <h3 style={aboutStyles.cardTitle}>Rules & Guidelines</h3>
+            <ul style={aboutStyles.rulesList}>
+              {rulesGuidelines.map((rule, index) => (
+                <motion.li
+                  key={index}
+                  style={{
+                    ...aboutStyles.ruleItem,
+                    ...(rule.type === 'allowed' ? aboutStyles.allowedRule : aboutStyles.notAllowedRule),
+                  }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <span style={aboutStyles.ruleIcon}>{rule.icon}</span>
+                  {rule.text}
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
