@@ -176,7 +176,7 @@ const AboutSection = () => {
             backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
           }}
         >
-          Welcome Freshers! 🎉 ✨
+          Welcome Freshers! 🎉 
         </motion.h1>
 
         {/* Hero Message Box */}
@@ -190,43 +190,44 @@ const AboutSection = () => {
         >
           {/* Gradient overlay animation */}
           <motion.div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
-              borderRadius: '24px',
-            }}
-            animate={{
-              background: [
-                'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
-                'linear-gradient(45deg, rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1))',
-                'linear-gradient(45deg, rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1))',
-              ],
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
+  style={{
+    position: 'absolute',
+    inset: 0,
+    background: 'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
+    borderRadius: '24px',
+  }}
+  animate={{
+    background: [
+      'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
+      'linear-gradient(45deg, rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1))',
+      'linear-gradient(45deg, rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1))',
+    ],
+  }}
+  transition={{ duration: 8, repeat: Infinity }}
+/>
 
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <motion.h2
-              style={aboutStyles.heroHeading}
-              animate={{
-                textShadow: [
-                  '0 0 20px rgba(255, 217, 61, 0.5)',
-                  '0 0 30px rgba(255, 217, 61, 0.8)',
-                  '0 0 20px rgba(255, 217, 61, 0.5)',
-                ],
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              🌟 Hey Future Tech Stars! 🌟
-            </motion.h2>
+<div style={{ position: 'relative', zIndex: 2 }}>
+  <motion.h2
+    style={aboutStyles.heroHeading}
+    animate={{
+      textShadow: [
+        '0 0 20px rgba(255, 217, 61, 0.5)',
+        '0 0 30px rgba(255, 217, 61, 0.8)',
+        '0 0 20px rgba(255, 217, 61, 0.5)',
+      ],
+    }}
+    transition={{ duration: 2, repeat: Infinity }}
+  >
+    ⚡ Freshers, It’s Time to Power Up! ⚡
+  </motion.h2>
 
-            <div style={aboutStyles.heroMessage}>
-              <p>🎓 Welcome to <strong>UDBHAV 2.0</strong> - where your MCA journey begins with excitement, learning, and endless possibilities!</p>
-              <p>🚀 Get ready for an amazing tech adventure filled with coding challenges, innovative projects, and lifelong friendships.</p>
-              <p>💫 Remember to follow our dress code and guidelines to make this celebration perfect for everyone!</p>
-            </div>
-          </div>
+  <div style={aboutStyles.heroMessage}>
+    <p>🌟 Welcome to <strong>UDBHAV 2.0</strong> — the start of your MCA adventure filled with fun, laughter, and good vibes all around!</p>
+    <p>🎉 Forget the code for a day — tonight’s all about music, dance, and making new friends!</p>
+    <p>💫 Let’s celebrate the spark that makes every fresher shine bright!</p>
+  </div>
+</div>
+
         </motion.div>
 
         {/* Cards Container */}

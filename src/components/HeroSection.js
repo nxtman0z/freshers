@@ -264,15 +264,17 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <motion.p
-          style={heroStyles.description}
+          style={{
+            ...heroStyles.description,
+            color: '#eb176cff',
+            fontWeight: 'bold',
+            textShadow: 'none',
+          }}
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
-          Welcome to the Future of
-          <span style={heroStyles.highlight}> MCA Education</span>
-          <br />
-          Where Innovation Meets Opportunity
+          Reboot. Refresh. Rejoice — MCA Freshers 2.0 is Live
         </motion.p>
 
         {/* University name */}
