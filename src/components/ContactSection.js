@@ -213,7 +213,7 @@ const ContactSection = () => {
         >
           <div style={contactStyles.inputGroup}>
             <label htmlFor="phone" style={contactStyles.label}>
-              📱 Phone Number *
+               Phone Number *
             </label>
             <input
               type="tel"
@@ -235,7 +235,7 @@ const ContactSection = () => {
 
           <div style={contactStyles.inputGroup}>
             <label htmlFor="subject" style={contactStyles.label}>
-              💬 Subject/Message *
+               Subject/Message *
             </label>
             <textarea
               id="subject"
