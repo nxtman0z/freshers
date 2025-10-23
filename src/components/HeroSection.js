@@ -158,39 +158,6 @@ const HeroSection = () => {
       color: '#9ca3af',
       marginTop: '0.5rem',
     },
-    buttonContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1.5rem',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    primaryButton: {
-      padding: '1rem 2rem',
-      background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
-      color: 'white',
-      fontWeight: 600,
-      borderRadius: '0.5rem',
-      fontSize: '1.125rem',
-      border: 'none',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      boxShadow: '0 10px 25px rgba(59, 130, 246, 0.3)',
-      transition: 'all 0.3s ease',
-    },
-    secondaryButton: {
-      padding: '1rem 2rem',
-      border: '2px solid #00d9ff',
-      color: '#00d9ff',
-      fontWeight: 600,
-      borderRadius: '0.5rem',
-      fontSize: '1.125rem',
-      background: 'transparent',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-    },
     scrollIndicator: {
       position: 'absolute',
       bottom: '2.5rem',
@@ -325,39 +292,6 @@ const HeroSection = () => {
 
         {/* Countdown Timer */}
         <CountdownTimer />
-
-        {/* CTA Buttons */}
-        <motion.div
-          style={heroStyles.buttonContainer}
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-        >
-          <motion.button
-            style={heroStyles.primaryButton}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 20px 40px rgba(59, 130, 246, 0.4)',
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span>Join the Journey</span>
-            <span>→</span>
-          </motion.button>
-
-          <motion.button
-            style={heroStyles.secondaryButton}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: '#00d9ff',
-              color: '#000000',
-              boxShadow: '0 20px 40px rgba(0, 217, 255, 0.3)',
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Learn More
-          </motion.button>
-        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
