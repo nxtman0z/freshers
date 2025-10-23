@@ -81,29 +81,43 @@ const EventSection = () => {
       fontWeight: '500',
     },
     eventDate: {
-      fontSize: 'clamp(1.5rem, 6vw, 3rem)',
+      fontSize: 'clamp(1.75rem, 7vw, 3.5rem)',
       fontWeight: 'bold',
-      color: '#00d9ff',
-      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
+      background: 'linear-gradient(45deg, #00d9ff, #8b5cf6, #ec4899)',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      marginBottom: 'clamp(0.75rem, 3vw, 1.5rem)',
       fontFamily: 'Orbitron, monospace',
-      textShadow: '0 0 20px rgba(0, 217, 255, 0.5)',
+      textShadow: '0 0 30px rgba(0, 217, 255, 0.8)',
+      backgroundSize: '200% 200%',
     },
     eventTime: {
-      fontSize: 'clamp(1.125rem, 4vw, 1.5rem)',
+      fontSize: 'clamp(1.25rem, 4.5vw, 1.75rem)',
       color: '#ffd700',
       marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
-      fontWeight: '600',
+      fontWeight: '700',
+      textShadow: '0 0 20px rgba(255, 215, 0, 0.6)',
+      letterSpacing: '0.5px',
     },
     eventVenue: {
-      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+      fontSize: 'clamp(1.125rem, 3.5vw, 1.5rem)',
       color: '#e2e8f0',
-      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
+      marginBottom: 'clamp(0.75rem, 2.5vw, 1.25rem)',
+      fontWeight: '600',
+      textShadow: '0 0 15px rgba(226, 232, 240, 0.4)',
+    },
     },
     hostInfo: {
-      fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
-      color: '#8b5cf6',
-      fontWeight: '500',
-      marginBottom: 'clamp(1rem, 3vw, 2rem)',
+      fontSize: 'clamp(1rem, 3vw, 1.25rem)',
+      background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      fontWeight: '600',
+      marginBottom: 'clamp(1.25rem, 4vw, 2.5rem)',
+      textShadow: '0 0 15px rgba(139, 92, 246, 0.5)',
+      textAlign: 'center',
     },
     disclaimer: {
       fontSize: 'clamp(0.75rem, 2vw, 0.875rem)',
@@ -249,23 +263,50 @@ const EventSection = () => {
           viewport={{ once: true }}
           whileHover={{ y: -10 }}
         >
-          {/* Gradient background animation */}
+          {/* Enhanced Gradient background animation */}
           <motion.div
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(0, 217, 255, 0.1), rgba(255, 212, 0, 0.1))',
+              background: 'linear-gradient(45deg, rgba(139, 92, 246, 0.15), rgba(0, 217, 255, 0.15), rgba(255, 212, 0, 0.15), rgba(236, 72, 153, 0.15))',
               borderRadius: '25px',
             }}
             animate={{
               background: [
-                'linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(0, 217, 255, 0.1), rgba(255, 212, 0, 0.1))',
-                'linear-gradient(45deg, rgba(0, 217, 255, 0.1), rgba(255, 212, 0, 0.1), rgba(139, 92, 246, 0.1))',
-                'linear-gradient(45deg, rgba(255, 212, 0, 0.1), rgba(139, 92, 246, 0.1), rgba(0, 217, 255, 0.1))',
+                'linear-gradient(45deg, rgba(139, 92, 246, 0.15), rgba(0, 217, 255, 0.15), rgba(255, 212, 0, 0.15), rgba(236, 72, 153, 0.15))',
+                'linear-gradient(45deg, rgba(0, 217, 255, 0.15), rgba(255, 212, 0, 0.15), rgba(236, 72, 153, 0.15), rgba(139, 92, 246, 0.15))',
+                'linear-gradient(45deg, rgba(255, 212, 0, 0.15), rgba(236, 72, 153, 0.15), rgba(139, 92, 246, 0.15), rgba(0, 217, 255, 0.15))',
+                'linear-gradient(45deg, rgba(236, 72, 153, 0.15), rgba(139, 92, 246, 0.15), rgba(0, 217, 255, 0.15), rgba(255, 212, 0, 0.15))',
               ],
             }}
             transition={{
-              duration: 8,
+              duration: 10,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+
+          {/* Floating particles effect */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.3) 2px, transparent 2px),
+                               radial-gradient(circle at 75% 75%, rgba(0, 217, 255, 0.3) 1px, transparent 1px),
+                               radial-gradient(circle at 50% 10%, rgba(255, 212, 0, 0.2) 1.5px, transparent 1.5px)`,
+              backgroundSize: '60px 60px, 40px 40px, 80px 80px',
+              borderRadius: '25px',
+            }}
+            animate={{
+              backgroundPosition: [
+                '0px 0px, 0px 0px, 0px 0px',
+                '60px 60px, -40px 40px, 80px -80px',
+                '120px 0px, 40px -40px, 0px 80px',
+                '0px 0px, 0px 0px, 0px 0px',
+              ],
+            }}
+            transition={{
+              duration: 20,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -292,23 +333,51 @@ const EventSection = () => {
             <motion.div
               style={eventStyles.eventTime}
               animate={{
-                color: ['#ffd700', '#ffed4e', '#ffd700'],
+                color: ['#ffd700', '#ffed4e', '#ffc107', '#ffd700'],
+                textShadow: [
+                  '0 0 20px rgba(255, 215, 0, 0.6)',
+                  '0 0 30px rgba(255, 237, 78, 0.8)',
+                  '0 0 20px rgba(255, 193, 7, 0.7)',
+                  '0 0 20px rgba(255, 215, 0, 0.6)',
+                ],
               }}
               transition={{
-                duration: 3,
+                duration: 3.5,
                 repeat: Infinity,
               }}
             >
               ⏰ 11.00 AM Onwards
             </motion.div>
 
-            <div style={eventStyles.eventVenue}>
+            <motion.div
+              style={eventStyles.eventVenue}
+              animate={{
+                textShadow: [
+                  '0 0 15px rgba(226, 232, 240, 0.4)',
+                  '0 0 25px rgba(226, 232, 240, 0.6)',
+                  '0 0 15px rgba(226, 232, 240, 0.4)',
+                ],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+              }}
+            >
               📍 Gym Area, CUTM Campus
-            </div>
+            </motion.div>
 
-            <div style={eventStyles.hostInfo}>
+            <motion.div
+              style={eventStyles.hostInfo}
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+            >
                Hosted by MCA Seniors ❤️
-            </div>
+            </motion.div>
 
             <motion.div
               style={eventStyles.disclaimer}
