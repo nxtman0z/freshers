@@ -10,6 +10,7 @@ const Navigation = () => {
     { name: 'About', href: '#about' },
     { name: 'Registration', href: 'https://forms.gle/1QvABHag9tzZd2si8', external: true },
     { name: 'Event Info', href: '#event' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
