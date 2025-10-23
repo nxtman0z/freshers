@@ -46,6 +46,40 @@ const EventSection = () => {
       position: 'relative',
       overflow: 'hidden',
     },
+    posterCard: {
+      background: 'rgba(255, 107, 107, 0.1)',
+      backdropFilter: 'blur(15px)',
+      border: '1px solid rgba(255, 107, 107, 0.3)',
+      borderRadius: '20px',
+      padding: 'clamp(1.5rem, 5vw, 2.5rem)',
+      textAlign: 'center',
+      marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
+      position: 'relative',
+      overflow: 'hidden',
+    },
+    posterTitle: {
+      fontSize: 'clamp(1.25rem, 4vw, 2rem)',
+      fontWeight: 'bold',
+      color: '#ff6b6b',
+      marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
+      textShadow: '0 0 15px rgba(255, 107, 107, 0.5)',
+    },
+    posterDate: {
+      fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+      color: '#ffd700',
+      fontWeight: '600',
+      marginBottom: '0.5rem',
+    },
+    posterTime: {
+      fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)',
+      color: '#94a3b8',
+      marginBottom: '0.5rem',
+    },
+    posterVenue: {
+      fontSize: 'clamp(0.875rem, 2.5vw, 1.125rem)',
+      color: '#8b5cf6',
+      fontWeight: '500',
+    },
     eventDate: {
       fontSize: 'clamp(1.5rem, 6vw, 3rem)',
       fontWeight: 'bold',
@@ -134,6 +168,78 @@ const EventSection = () => {
           Mark your calendars! Here's everything you need to know about UDBHAV 2.0
         </motion.p>
 
+        {/* Poster Release Card */}
+        <motion.div
+          style={eventStyles.posterCard}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -5, scale: 1.02 }}
+        >
+          {/* Animated border glow */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 212, 0, 0.2), rgba(139, 92, 246, 0.2))',
+              borderRadius: '20px',
+            }}
+            animate={{
+              background: [
+                'linear-gradient(45deg, rgba(255, 107, 107, 0.2), rgba(255, 212, 0, 0.2), rgba(139, 92, 246, 0.2))',
+                'linear-gradient(45deg, rgba(255, 212, 0, 0.2), rgba(139, 92, 246, 0.2), rgba(255, 107, 107, 0.2))',
+                'linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(255, 107, 107, 0.2), rgba(255, 212, 0, 0.2))',
+              ],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+
+          <div style={{ position: 'relative', zIndex: 10 }}>
+            <motion.div
+              style={eventStyles.posterTitle}
+              animate={{
+                textShadow: [
+                  '0 0 15px rgba(255, 107, 107, 0.5)',
+                  '0 0 25px rgba(255, 107, 107, 0.8)',
+                  '0 0 15px rgba(255, 107, 107, 0.5)',
+                ],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+              }}
+            >
+              🎊 Poster Release Event
+            </motion.div>
+
+            <motion.div
+              style={eventStyles.posterDate}
+              animate={{
+                color: ['#ffd700', '#ffed4e', '#ffd700'],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+              }}
+            >
+              📅 Saturday, 25th October 2025
+            </motion.div>
+
+            <div style={eventStyles.posterTime}>
+              ⏰ 4.00 PM
+            </div>
+
+            <div style={eventStyles.posterVenue}>
+              📍 In front of Aryabhatta Building
+            </div>
+          </div>
+        </motion.div>
+
         {/* Main Event Card */}
         <motion.div
           style={eventStyles.mainCard}
@@ -193,7 +299,7 @@ const EventSection = () => {
                 repeat: Infinity,
               }}
             >
-              ⏰ 9:00 AM Onwards
+              ⏰ 11.00 AM Onwards
             </motion.div>
 
             <div style={eventStyles.eventVenue}>
@@ -201,7 +307,7 @@ const EventSection = () => {
             </div>
 
             <div style={eventStyles.hostInfo}>
-              👥 Hosted by MCA Department
+               Hosted by MCA Seniors ❤️
             </div>
 
             <motion.div
