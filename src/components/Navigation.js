@@ -138,6 +138,26 @@ const Navigation = () => {
       justifyContent: 'center',
       gap: '2rem',
       zIndex: 55,
+      padding: '2rem',
+    },
+    closeButton: {
+      position: 'absolute',
+      top: '2rem',
+      right: '2rem',
+      background: 'rgba(255, 255, 255, 0.1)',
+      border: '2px solid rgba(255, 255, 255, 0.2)',
+      borderRadius: '50%',
+      width: '50px',
+      height: '50px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '1.5rem',
+      color: '#fff',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      backdropFilter: 'blur(10px)',
+      zIndex: 60,
     },
     mobileNavButton: {
       padding: '1rem 2rem',
@@ -302,12 +322,14 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             style={navStyles.mobileMenuButton}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            {isMobileMenuOpen ? '✕' : '☰'}
-          </button>
+            ☰
+          </motion.button>
         </div>
       </motion.nav>
 
@@ -321,6 +343,24 @@ const Navigation = () => {
             exit={{ opacity: 0, y: '-100%' }}
             transition={{ duration: 0.3 }}
           >
+            {/* Close Button */}
+            <motion.button
+              style={navStyles.closeButton}
+              onClick={() => setIsMobileMenuOpen(false)}
+              initial={{ opacity: 0, scale: 0, rotate: -180 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+              whileHover={{ 
+                scale: 1.1,
+                background: 'rgba(255, 107, 107, 0.3)',
+                borderColor: '#ff6b6b',
+                rotate: 90,
+              }}
+              whileTap={{ scale: 0.9 }}
+            >
+              ✕
+            </motion.button>
+
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}

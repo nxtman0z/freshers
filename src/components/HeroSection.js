@@ -297,12 +297,15 @@ const HeroSection = () => {
         <motion.div
           style={{
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: window.innerWidth < 768 ? 'column' : 'row',
             gap: 'clamp(1rem, 4vw, 2rem)',
             justifyContent: 'center',
             alignItems: 'center',
             margin: 'clamp(2rem, 6vw, 3rem) 0',
             flexWrap: 'wrap',
+            background: 'transparent',
+            position: 'relative',
+            zIndex: 10,
           }}
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -317,13 +320,14 @@ const HeroSection = () => {
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
               fontWeight: '600',
-              border: 'none',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 0 20px rgba(255, 107, 107, 0.5)',
+              boxShadow: '0 0 20px rgba(255, 107, 107, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
               position: 'relative',
               overflow: 'hidden',
               minWidth: 'clamp(140px, 30vw, 180px)',
+              backdropFilter: 'blur(10px)',
             }}
             onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
             whileHover={{
@@ -371,11 +375,12 @@ const HeroSection = () => {
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
               fontWeight: '600',
-              border: 'none',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: '0 0 15px rgba(69, 183, 209, 0.5)',
+              boxShadow: '0 0 15px rgba(69, 183, 209, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
               minWidth: 'clamp(140px, 30vw, 180px)',
+              backdropFilter: 'blur(10px)',
             }}
             onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
             whileHover={{
