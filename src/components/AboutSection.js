@@ -113,8 +113,8 @@ const AboutSection = () => {
   const dressCodeRules = [
     { icon: '👔', text: 'Boys: Casual or semi-formal (Jeans, Shirts, Trousers)' },
     { icon: '❌', text: 'Boys - Not allowed: Kurta, Pyjama, Dhoti' },
-    { icon: '👗', text: 'Girls: Casual or semi-formal (Western wear, Dresses, Skirts, Tops)' },
-    { icon: '❌', text: 'Girls - Not allowed: Saree, Sleeveless, Backless' },
+    { icon: '👗', text: 'Girls: Casual or semi-formal (Formal Dresses, Suits)' },
+    { icon: '❌', text: 'Girls - Not allowed: Saree, Sleeveless, (No revealing dresses)' },
   ];
 
   const generalRules = [
