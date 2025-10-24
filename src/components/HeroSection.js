@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import CountdownTimer from './CountdownTimer';
+import VideoModal from './VideoModal';
 
 const HeroSection = () => {
   const canvasRef = useRef(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Particle animation on canvas
   useEffect(() => {
@@ -445,7 +447,7 @@ const HeroSection = () => {
               backdropFilter: 'blur(10px)',
               textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
-            onClick={() => alert('🎬 Stay Tuned!\nSomething Big Is Coming Soon — The Freshers\' Vibe Awaits 💥')}
+            onClick={() => setIsVideoModalOpen(true)}
             whileHover={{
               scale: 1.05,
               boxShadow: '0 0 25px rgba(139, 92, 246, 0.8)',
@@ -508,6 +510,12 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Video Modal */}
+      <VideoModal 
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+      />
     </section>
   );
 };
