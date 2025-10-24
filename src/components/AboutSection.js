@@ -12,7 +12,8 @@ const AboutSection = () => {
       margin: '0',
       border: 'none',
       outline: 'none',
-      marginTop: '-1px',
+      marginTop: '-10px',
+      paddingTop: '20px',
     },
     container: {
       maxWidth: '1200px',
