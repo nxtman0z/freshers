@@ -34,13 +34,42 @@ const VideoModal = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/udbhav.mp4';
-    link.download = 'UDBHAV_2.0_The_Vibe.mp4';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownload = async () => {
+    try {
+      // Fetch the video with proper headers to maintain quality
+      const response = await fetch('/udbhav.mp4', {
+        method: 'GET',
+        headers: {
+          'Accept': 'video/mp4,video/*;q=0.9,*/*;q=0.8',
+        },
+      });
+      
+      if (!response.ok) throw new Error('Network response was not ok');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'UDBHAV_2.0_The_Vibe.mp4';
+      link.style.display = 'none';
+      
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up the object URL
+      setTimeout(() => window.URL.revokeObjectURL(url), 1000);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback to simple download
+      const link = document.createElement('a');
+      link.href = '/udbhav.mp4';
+      link.download = 'UDBHAV_2.0_The_Vibe.mp4';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   };
 
   if (!isOpen) return null;
@@ -138,14 +167,13 @@ const VideoModal = ({ isOpen, onClose }) => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '3rem',
+                  boxShadow: '0 10px 30px rgba(139, 92, 246, 0.4)',
                 }}
                 animate={{
-                  rotate: 360,
-                  scale: [1, 1.1, 1],
+                  scale: [1, 1.05, 1],
                 }}
                 transition={{
-                  rotate: { duration: 2, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
                 }}
               >
                 🎬
@@ -239,15 +267,16 @@ const VideoModal = ({ isOpen, onClose }) => {
                 <video
                   controls
                   autoPlay
+                  preload="metadata"
                   style={{
                     width: '100%',
                     height: 'clamp(200px, 40vw, 400px)',
                     borderRadius: '18px',
-                    objectFit: 'cover',
+                    objectFit: 'contain',
                   }}
                   poster="/udbhav-logo.png"
                 >
-                  <source src="/udbhav.mp4" type="video/mp4" />
+                  <source src="/udbhav.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" />
                   Your browser does not support the video tag.
                 </video>
                 
