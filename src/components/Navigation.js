@@ -10,6 +10,8 @@ const Navigation = () => {
     { name: 'About', href: '#about' },
     { name: 'Event Info', href: '#event' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Feedback', href: '#feedback', comingSoon: true },
+    { name: 'Memories', href: '#memories', comingSoon: true },
   ];
 
   useEffect(() => {
@@ -24,9 +26,14 @@ const Navigation = () => {
     };
   }, []);
 
-  const scrollToSection = (href, external) => {
+  const scrollToSection = (href, external, comingSoon) => {
     if (external) {
       window.open(href, '_blank');
+      return;
+    }
+    if (comingSoon) {
+      alert('🚀 This feature is coming soon!\n\nStay tuned for exciting updates! 🎉');
+      setIsMobileMenuOpen(false);
       return;
     }
     const targetId = href.substring(1);
@@ -252,7 +259,7 @@ const Navigation = () => {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href, item.external)}
+                onClick={() => scrollToSection(item.href, item.external, item.comingSoon)}
                 style={navStyles.navButton}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -307,7 +314,7 @@ const Navigation = () => {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
-                onClick={() => scrollToSection(item.href, item.external)}
+                onClick={() => scrollToSection(item.href, item.external, item.comingSoon)}
                 style={navStyles.mobileNavButton}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
