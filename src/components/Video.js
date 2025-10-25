@@ -57,9 +57,24 @@ const Video = ({ isOpen, onClose }) => {
 
   const downloadVideo = async (videoKey) => {
     try {
+      console.log('Downloading video:', videoKey);
       const videoPath = videos[videoKey];
-      const response = await fetch(videoPath);
+      console.log('Video path:', videoPath);
+      
+      const response = await fetch(videoPath, {
+        method: 'GET',
+        headers: {
+          'Accept': 'video/mp4,video/*;q=0.9,*/*;q=0.8',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const blob = await response.blob();
+      console.log('Blob size:', blob.size);
+      
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -74,13 +89,49 @@ const Video = ({ isOpen, onClose }) => {
       }
       
       a.download = fileName;
+      a.style.display = 'none';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
+      
+      // Clean up after a short delay
+      setTimeout(() => {
+        window.URL.revokeObjectURL(url);
+      }, 1000);
+      
+      console.log('Download initiated successfully');
     } catch (error) {
       console.error('Download failed:', error);
-      alert('Download failed. Please try again.');
+      
+      // Fallback: Try direct link download
+      try {
+        console.log('Trying fallback download method...');
+        const videoPath = videos[videoKey];
+        
+        let fallbackFileName = '';
+        if (videoKey === 'udbhav') {
+          fallbackFileName = 'UDBHAV_2.0_Official_Video.mp4';
+        } else if (videoKey === 'poster1') {
+          fallbackFileName = 'UDBHAV_Poster_Release_Video_1.mp4';
+        } else if (videoKey === 'poster2') {
+          fallbackFileName = 'UDBHAV_Poster_Release_Video_2.mp4';
+        } else {
+          fallbackFileName = 'video.mp4';
+        }
+        
+        const a = document.createElement('a');
+        a.href = videoPath;
+        a.download = fallbackFileName;
+        a.target = '_blank';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        console.log('Fallback download initiated');
+      } catch (fallbackError) {
+        console.error('Fallback download also failed:', fallbackError);
+        alert(`Download failed: ${error.message}. Please try right-click on the video and select "Save video as..."`);
+      }
     }
   };
 
