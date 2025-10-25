@@ -270,7 +270,7 @@ const EventSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            Mark your calendars for these exciting events!
+            Mark your calendars and get excited for UDBHAV 2.0!
           </motion.p>
         </motion.div>
 
@@ -320,7 +320,7 @@ const EventSection = () => {
               🌈
             </motion.span>
             
-            <h3 style={eventStyles.cardTitle}>Poster Release Event</h3>
+            <h3 style={eventStyles.cardTitle}>🎉 Poster Released Successfully!</h3>
             
             <motion.div
               style={eventStyles.eventDate}
@@ -336,11 +336,11 @@ const EventSection = () => {
                 repeat: Infinity,
               }}
             >
-              📅 Saturday, 25th October 2025
+              ✅ Released on Saturday, 25th October 2025
             </motion.div>
             
-            <div style={eventStyles.eventTime}>⏰ 4:00 PM</div>
-            <div style={eventStyles.eventVenue}>📍 In front of Aryabhatta Building</div>
+            <div style={eventStyles.eventTime}>🎊 Thank you for your amazing response!</div>
+            <div style={eventStyles.eventVenue}>� Get ready for the main event now!</div>
           </motion.div>
 
           {/* Main Event Card */}

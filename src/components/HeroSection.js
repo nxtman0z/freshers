@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import CountdownTimer from './CountdownTimer';
-import VideoModal from './VideoModal';
+import Video from './Video';
 
 const HeroSection = () => {
   const canvasRef = useRef(null);
@@ -513,7 +513,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Video Modal */}
-      <VideoModal 
+      <Video 
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
       />

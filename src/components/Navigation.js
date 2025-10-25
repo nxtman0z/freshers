@@ -87,16 +87,18 @@ const Navigation = () => {
       borderRadius: '50%',
       objectFit: 'cover',
     },
-    logoText: {
-      fontSize: 'clamp(1.125rem, 4vw, 1.5rem)',
+    welcomeText: {
+      fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
       fontFamily: 'var(--font-heading)',
-      fontWeight: 'var(--weight-bold)',
-      background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
+      fontWeight: 'var(--weight-semibold)',
+      background: 'linear-gradient(45deg, #00d9ff, #3b82f6)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       margin: 0,
+      marginLeft: '0.5rem',
       letterSpacing: '0.02em',
+      whiteSpace: 'nowrap',
     },
     desktopNav: {
       display: 'flex',
@@ -198,7 +200,7 @@ const Navigation = () => {
   };
 
   // Media query hook
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -247,11 +249,11 @@ const Navigation = () => {
             >
               <img 
                 src="/udbhav-logo.png" 
-                alt="UDBHAV 2.0 Logo" 
+                alt="UDBHAV Logo" 
                 style={navStyles.logoImage}
               />
             </motion.div>
-            <h1 style={navStyles.logoText}>UDBHAV 2.0</h1>
+            <h1 style={navStyles.welcomeText}>Welcome</h1>
           </motion.div>
 
           {/* Desktop Navigation */}
