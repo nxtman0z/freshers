@@ -281,16 +281,17 @@ const InvitationSection = () => {
           exit={{ opacity: 0 }}
           style={{
             position: 'fixed',
-            top: 0,
+            top: '80px',
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0, 0, 0, 0.9)',
-            zIndex: 10000,
+            background: 'rgba(0, 0, 0, 0.95)',
+            zIndex: 40,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '20px',
+            overflow: 'hidden',
           }}
           onClick={() => setIsModalOpen(false)}
         >
@@ -300,12 +301,16 @@ const InvitationSection = () => {
             exit={{ scale: 0.8 }}
             style={{
               background: 'white',
-              borderRadius: '20px',
-              padding: '20px',
-              maxWidth: '90%',
-              maxHeight: '90%',
-              overflow: 'auto',
+              borderRadius: '15px',
+              width: '90vw',
+              maxWidth: '500px',
+              height: '80vh',
+              maxHeight: '650px',
               position: 'relative',
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              marginTop: '20px',
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -314,20 +319,21 @@ const InvitationSection = () => {
               onClick={() => setIsModalOpen(false)}
               style={{
                 position: 'absolute',
-                top: '15px',
-                right: '15px',
+                top: '10px',
+                right: '10px',
                 background: '#ef4444',
                 border: 'none',
                 borderRadius: '50%',
-                width: '40px',
-                height: '40px',
+                width: '35px',
+                height: '35px',
                 color: 'white',
-                fontSize: '1.2rem',
+                fontSize: '1.1rem',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                zIndex: 10001,
+                zIndex: 45,
+                boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
               }}
             >
               ✕
@@ -338,9 +344,9 @@ const InvitationSection = () => {
               src="/invitation.pdf"
               style={{
                 width: '100%',
-                height: '80vh',
+                height: '100%',
                 border: 'none',
-                borderRadius: '10px',
+                borderRadius: '15px',
               }}
               title="UDBHAV 2.0 Invitation"
             />
