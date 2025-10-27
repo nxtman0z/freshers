@@ -5,7 +5,7 @@ const AboutSection = () => {
   const aboutStyles = {
     section: {
       padding: '0 clamp(1rem, 4vw, 2rem) clamp(2rem, 6vw, 4rem)',
-      background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #1e3a8a 75%, #0f172a 100%)',
+      background: 'var(--background-gradient)',
       position: 'relative',
       overflow: 'hidden',
       minHeight: '100vh',
@@ -40,16 +40,16 @@ const AboutSection = () => {
     },
     // Hero Message Box
     heroMessageBox: {
-      background: 'rgba(255, 255, 255, 0.08)',
-      backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.15)',
-      borderRadius: '24px',
+      background: 'var(--glass-bg)',
+      backdropFilter: 'var(--glass-blur)',
+      border: 'var(--glass-border)',
+      borderRadius: 'var(--radius-xl)',
       padding: 'clamp(2rem, 5vw, 3rem)',
       marginBottom: 'clamp(2rem, 5vw, 3rem)',
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
-      boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+      boxShadow: 'var(--shadow-xl)',
     },
     heroHeading: {
       fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
@@ -79,16 +79,16 @@ const AboutSection = () => {
     },
     // Glassmorphism Card Base
     card: {
-      background: 'rgba(255, 255, 255, 0.06)',
-      backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.12)',
-      borderRadius: '20px',
+      background: 'var(--glass-bg)',
+      backdropFilter: 'var(--glass-blur)',
+      border: 'var(--glass-border)',
+      borderRadius: 'var(--radius-lg)',
       padding: 'clamp(1.5rem, 4vw, 2.5rem)',
       position: 'relative',
       overflow: 'hidden',
       cursor: 'pointer',
       transition: 'all 0.4s cubic-bezier(0.23, 1, 0.320, 1)',
-      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+      boxShadow: 'var(--shadow-lg)',
     },
     cardIcon: {
       fontSize: 'clamp(2rem, 5vw, 3rem)',

@@ -5,7 +5,7 @@ const EventSection = () => {
   const eventStyles = {
     section: {
       padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
-      background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%)',
+      background: 'var(--background-gradient)',
       position: 'relative',
       overflow: 'hidden',
       minHeight: '100vh',
@@ -66,9 +66,9 @@ const EventSection = () => {
     
     // Card base styles
     cardBase: {
-      background: 'rgba(255, 255, 255, 0.08)',
-      backdropFilter: 'blur(12px)',
-      borderRadius: '24px',
+      background: 'var(--glass-bg)',
+      backdropFilter: 'var(--glass-blur)',
+      borderRadius: 'var(--radius-xl)',
       padding: 'clamp(1.5rem, 4vw, 2.5rem)',
       position: 'relative',
       overflow: 'hidden',
@@ -81,14 +81,14 @@ const EventSection = () => {
     posterCard: {
       background: 'rgba(20, 184, 166, 0.15)',
       border: '1px solid rgba(20, 184, 166, 0.3)',
-      boxShadow: '0 8px 32px rgba(20, 184, 166, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+      boxShadow: 'var(--shadow-lg)',
     },
     
     // Card 2 - Main Event (Teal-Emerald) 
     mainCard: {
       background: 'rgba(20, 184, 166, 0.15)',
       border: '1px solid rgba(20, 184, 166, 0.3)',
-      boxShadow: '0 8px 32px rgba(20, 184, 166, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+      boxShadow: 'var(--shadow-lg)',
     },
     
     // Card content

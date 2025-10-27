@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import EventSection from './components/EventSection';
+import InvitationSection from './components/InvitationSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import './App.css';
@@ -49,6 +50,11 @@ function App() {
               {/* Event Section */}
               <section id="event">
                 <EventSection />
+              </section>
+
+              {/* Invitation Section */}
+              <section id="invitation">
+                <InvitationSection />
               </section>
 
               {/* Contact Section */}

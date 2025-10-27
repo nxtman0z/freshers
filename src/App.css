@@ -1,4 +1,4 @@
-/* Enhanced Typography System */
+/* Enhanced Typography & Design System */
 :root {
   /* Font Families */
   --font-heading: 'Orbitron', 'Rajdhani', 'Arial Black', sans-serif;
@@ -7,8 +7,8 @@
   --font-button: 'Rajdhani', 'Inter', sans-serif;
   
   /* Font Sizes (Responsive) */
-  --font-h1: clamp(2.5rem, 6vw, 4rem);
-  --font-h2: clamp(2rem, 5vw, 3rem);
+  --font-h1: clamp(2.5rem, 6vw, 5rem);
+  --font-h2: clamp(2rem, 5vw, 3.5rem);
   --font-h3: clamp(1.5rem, 4vw, 2.5rem);
   --font-body: clamp(1rem, 2.5vw, 1.125rem);
   --font-button: clamp(0.875rem, 2.5vw, 1rem);
@@ -21,11 +21,23 @@
   --weight-bold: 700;
   --weight-black: 900;
   
-  /* Colors for Typography */
+  /* Enhanced Color Palette */
+  --primary-gradient: linear-gradient(135deg, #00d9ff 0%, #3b82f6 50%, #8b5cf6 100%);
+  --secondary-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #f59e0b 100%);
+  --background-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #312e81 50%, #1e1b4b 75%, #0f172a 100%);
   --text-primary: #EFEFEF;
   --text-secondary: #C1C1C1;
   --text-accent: #00d9ff;
   --text-contrast: #ffffff;
+  
+  /* Glass Effect Variables */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  
+  /* Animation Variables */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* Global Typography Reset */
@@ -38,12 +50,43 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background: #0a0a0a;
+  background: var(--background-gradient);
   color: var(--text-primary);
   overflow-x: hidden;
   font-family: var(--font-body);
   font-weight: var(--weight-normal);
-  line-height: 1.5;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Enhanced Background Effects */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top left, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main content wrapper */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section spacing and styling */
+section {
+  position: relative;
+  padding: 100px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Smooth scrolling */
@@ -51,14 +94,15 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Typography Classes */
+/* Enhanced Typography Classes */
 h1, .heading-1 {
   font-family: var(--font-heading);
   font-size: var(--font-h1);
   font-weight: var(--weight-bold);
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: 0.02em;
   color: var(--text-contrast);
+  text-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
 }
 
 h2, .heading-2 {
@@ -183,6 +227,146 @@ p, .body-text {
   }
   50% {
     box-shadow: 0 0 25px rgba(139, 92, 246, 0.8), 0 0 50px rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* Enhanced Utility Classes */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-horizontal);
+  opacity: 0.6;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+.btn-primary {
+  background: var(--button-primary-bg);
+  border: var(--button-primary-border);
+  color: var(--button-primary-text);
+  padding: 12px 30px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 217, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.8), rgba(139, 92, 246, 0.8));
+}
+
+.btn-secondary {
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  padding: 12px 30px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-medium);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: var(--glass-blur);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 217, 255, 0.5);
+  background: rgba(0, 217, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
+}
+
+/* Enhanced Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.1) 25%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 15px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 10px;
+  }
+  
+  .App::before {
+    background: 
+      radial-gradient(ellipse at center, rgba(0, 217, 255, 0.03) 0%, transparent 70%),
+      radial-gradient(ellipse at center, rgba(139, 92, 246, 0.03) 0%, transparent 70%);
   }
 }
 

@@ -9,6 +9,7 @@ const Navigation = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Event Info', href: '#event' },
+    { name: 'Invitation', href: '#invitation' },
     { name: 'Contact', href: '#contact' },
     { name: 'Feedback', href: '#feedback', comingSoon: true },
     { name: 'Memories', href: '#memories', comingSoon: true },

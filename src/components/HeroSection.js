@@ -84,7 +84,7 @@ const HeroSection = () => {
       border: 'none',
       outline: 'none',
       marginBottom: '-1px',
-      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f23 100%)',
+      background: 'var(--background-gradient)',
     },
     canvas: {
       position: 'absolute',
@@ -341,24 +341,16 @@ const HeroSection = () => {
         >
           {/* Registration Button with Glow */}
           <motion.button
+            className="btn-primary"
             style={{
-              padding: 'clamp(1rem, 3vw, 1.25rem) clamp(1.75rem, 5vw, 2.25rem)',
-              background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
-              color: 'var(--text-contrast)',
+              background: 'var(--button-primary-bg)',
+              border: 'var(--button-primary-border)',
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
-              fontFamily: 'var(--font-button)',
-              fontWeight: 'var(--weight-semibold)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              border: '2px solid rgba(255, 255, 255, 0.1)',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
               boxShadow: '0 0 20px rgba(139, 92, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
-              position: 'relative',
-              overflow: 'hidden',
               minWidth: 'clamp(160px, 32vw, 200px)',
-              backdropFilter: 'blur(10px)',
               textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
             onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
@@ -376,46 +368,21 @@ const HeroSection = () => {
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            {/* Pulsing Glow Effect */}
-            <motion.div
-              style={{
-                position: 'absolute',
-                inset: '-2px',
-                background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
-                borderRadius: '50px',
-                opacity: 0.3,
-                zIndex: -1,
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-              }}
-            />
             ✨ Registration
           </motion.button>
 
           {/* Activity Participation Button */}
           <motion.button
+            className="btn-primary"
             style={{
-              padding: 'clamp(1rem, 3vw, 1.25rem) clamp(1.75rem, 5vw, 2.25rem)',
-              background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
-              color: 'var(--text-contrast)',
+              background: 'var(--button-primary-bg)',
+              border: 'var(--button-primary-border)',
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
-              fontFamily: 'var(--font-button)',
-              fontWeight: 'var(--weight-semibold)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              border: '2px solid rgba(255, 255, 255, 0.1)',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
               boxShadow: '0 0 15px rgba(139, 92, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
               minWidth: 'clamp(160px, 32vw, 200px)',
-              backdropFilter: 'blur(10px)',
               textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
             onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
@@ -430,22 +397,16 @@ const HeroSection = () => {
 
           {/* Watch the Vibe Button */}
           <motion.button
+            className="btn-primary"
             style={{
-              padding: 'clamp(1rem, 3vw, 1.25rem) clamp(1.75rem, 5vw, 2.25rem)',
-              background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
-              color: 'var(--text-contrast)',
+              background: 'var(--button-primary-bg)',
+              border: 'var(--button-primary-border)',
               borderRadius: '50px',
               fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
-              fontFamily: 'var(--font-button)',
-              fontWeight: 'var(--weight-semibold)',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              border: '2px solid rgba(255, 255, 255, 0.1)',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
               boxShadow: '0 0 15px rgba(139, 92, 246, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2)',
               minWidth: 'clamp(160px, 32vw, 200px)',
-              backdropFilter: 'blur(10px)',
               textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
             onClick={() => setIsVideoModalOpen(true)}
@@ -463,25 +424,6 @@ const HeroSection = () => {
             }}
             transition={{ duration: 2.5, repeat: Infinity }}
           >
-            {/* Pulsing Glow Effect */}
-            <motion.div
-              style={{
-                position: 'absolute',
-                inset: '-2px',
-                background: 'linear-gradient(45deg, #8b5cf6, #ec4899)',
-                borderRadius: '50px',
-                opacity: 0.3,
-                zIndex: -1,
-              }}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-              }}
-            />
             🎬 Watch the Vibe
           </motion.button>
         </motion.div>

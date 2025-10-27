@@ -46,7 +46,7 @@ const ContactSection = () => {
   const contactStyles = {
     section: {
       padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
-      background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)',
+      background: 'var(--background-gradient)',
       position: 'relative',
       overflow: 'hidden',
     },
@@ -75,12 +75,12 @@ const ContactSection = () => {
       lineHeight: '1.6',
     },
     form: {
-      background: 'rgba(255, 255, 255, 0.1)',
-      backdropFilter: 'blur(15px)',
-      border: '1px solid rgba(255, 255, 255, 0.2)',
-      borderRadius: '20px',
+      background: 'var(--glass-bg)',
+      backdropFilter: 'var(--glass-blur)',
+      border: 'var(--glass-border)',
+      borderRadius: 'var(--radius-lg)',
       padding: 'clamp(2rem, 6vw, 3rem)',
-      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
+      boxShadow: 'var(--shadow-xl)',
     },
     inputGroup: {
       marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
