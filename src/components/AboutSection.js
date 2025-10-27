@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ParticleBackground from './ParticleBackground';
 
 const AboutSection = () => {
   const aboutStyles = {
     section: {
-      padding: '0 clamp(1rem, 4vw, 2rem) clamp(2rem, 6vw, 4rem)',
-      background: 'var(--background-gradient)',
+      padding: '0 clamp(1rem, 4vw, 2rem) clamp(1rem, 3vw, 2rem)',
+      background: 'transparent',
       position: 'relative',
       overflow: 'hidden',
-      minHeight: '100vh',
+      minHeight: 'auto',
       margin: '0',
       border: 'none',
       outline: 'none',
-      marginTop: '-10px',
-      paddingTop: '20px',
+      paddingTop: 'clamp(2rem, 4vw, 3rem)',
     },
     container: {
       maxWidth: '1200px',
@@ -38,26 +38,26 @@ const AboutSection = () => {
       lineHeight: '1.1',
       textTransform: 'uppercase',
     },
-    // Hero Message Box
+    // Hero Message Box - Made invisible
     heroMessageBox: {
-      background: 'var(--glass-bg)',
-      backdropFilter: 'var(--glass-blur)',
-      border: 'var(--glass-border)',
+      background: 'transparent',
+      backdropFilter: 'none',
+      border: 'none',
       borderRadius: 'var(--radius-xl)',
-      padding: 'clamp(2rem, 5vw, 3rem)',
-      marginBottom: 'clamp(2rem, 5vw, 3rem)',
+      padding: 'clamp(1rem, 3vw, 2rem)',
+      marginBottom: 'clamp(1rem, 3vw, 2rem)',
       textAlign: 'center',
       position: 'relative',
       overflow: 'hidden',
-      boxShadow: 'var(--shadow-xl)',
+      boxShadow: 'none',
     },
     heroHeading: {
       fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
       fontWeight: 'var(--weight-bold)',
       fontFamily: 'var(--font-subheading)',
-      color: '#ffd93d',
+      color: '#FFD700',
       marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
-      textShadow: '0 0 20px rgba(255, 217, 61, 0.5)',
+      textShadow: '0 0 20px rgba(255, 215, 0, 0.6)',
       letterSpacing: '0.01em',
       lineHeight: '1.2',
     },
@@ -74,21 +74,21 @@ const AboutSection = () => {
     cardsContainer: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: 'clamp(1.5rem, 4vw, 2.5rem)',
-      marginTop: 'clamp(2rem, 5vw, 3rem)',
+      gap: 'clamp(1rem, 3vw, 1.5rem)',
+      marginTop: 'clamp(1rem, 3vw, 2rem)',
     },
-    // Glassmorphism Card Base
+    // Glassmorphism Card Base - Made invisible
     card: {
-      background: 'var(--glass-bg)',
-      backdropFilter: 'var(--glass-blur)',
-      border: 'var(--glass-border)',
+      background: 'transparent',
+      backdropFilter: 'none',
+      border: 'none',
       borderRadius: 'var(--radius-lg)',
       padding: 'clamp(1.5rem, 4vw, 2.5rem)',
       position: 'relative',
       overflow: 'hidden',
       cursor: 'pointer',
       transition: 'all 0.4s cubic-bezier(0.23, 1, 0.320, 1)',
-      boxShadow: 'var(--shadow-lg)',
+      boxShadow: 'none',
     },
     cardIcon: {
       fontSize: 'clamp(2rem, 5vw, 3rem)',
@@ -160,33 +160,8 @@ const AboutSection = () => {
 
   return (
     <section style={aboutStyles.section}>
-      {/* Floating Particles Background */}
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-        {[...Array(50)].map((_, i) => (
-          <motion.div
-            key={i}
-            style={{
-              position: 'absolute',
-              width: Math.random() * 4 + 1 + 'px',
-              height: Math.random() * 4 + 1 + 'px',
-              background: `hsl(${Math.random() * 60 + 200}, 70%, 80%)`,
-              borderRadius: '50%',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-            }}
-            animate={{
-              y: [-20, -100, -20],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 10,
-            }}
-          />
-        ))}
-      </div>
+      {/* Particle Background */}
+      <ParticleBackground particleCount={60} particleColor="auto" />
 
       <div style={aboutStyles.container}>
         {/* Main Welcome Title */}
@@ -212,26 +187,8 @@ const AboutSection = () => {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02, y: -5 }}
         >
-          {/* Gradient overlay animation */}
-          <motion.div
-  style={{
-    position: 'absolute',
-    inset: 0,
-    background: 'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
-    borderRadius: '24px',
-  }}
-  animate={{
-    background: [
-      'linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1))',
-      'linear-gradient(45deg, rgba(76, 205, 196, 0.1), rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1))',
-      'linear-gradient(45deg, rgba(255, 217, 61, 0.1), rgba(255, 107, 107, 0.1), rgba(76, 205, 196, 0.1))',
-    ],
-  }}
-  transition={{ duration: 8, repeat: Infinity }}
-/>
-
-<div style={{ position: 'relative', zIndex: 2 }}>
-  <motion.h2
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <motion.h2
     style={aboutStyles.heroHeading}
     animate={{
       textShadow: [
@@ -258,11 +215,7 @@ const AboutSection = () => {
         <div style={aboutStyles.cardsContainer}>
           {/* Dress Code Card */}
           <motion.div
-            style={{
-              ...aboutStyles.card,
-              background: 'rgba(255, 107, 107, 0.08)',
-              border: '1px solid rgba(255, 107, 107, 0.2)',
-            }}
+            style={aboutStyles.card}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -293,11 +246,7 @@ const AboutSection = () => {
 
           {/* Rules & Guidelines Card */}
           <motion.div
-            style={{
-              ...aboutStyles.card,
-              background: 'rgba(108, 92, 231, 0.08)',
-              border: '1px solid rgba(108, 92, 231, 0.2)',
-            }}
+            style={aboutStyles.card}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ParticleBackground from './ParticleBackground';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -45,8 +46,8 @@ const ContactSection = () => {
 
   const contactStyles = {
     section: {
-      padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
-      background: 'var(--background-gradient)',
+      padding: 'clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)',
+      background: 'transparent',
       position: 'relative',
       overflow: 'hidden',
     },
@@ -59,7 +60,7 @@ const ContactSection = () => {
     title: {
       fontSize: 'clamp(2rem, 8vw, 3.5rem)',
       fontWeight: 'bold',
-      background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #00d9ff)',
+      background: 'linear-gradient(45deg, #FFD700, #FF6B35, #00FF94)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
@@ -69,21 +70,21 @@ const ContactSection = () => {
     },
     subtitle: {
       fontSize: 'clamp(1rem, 3vw, 1.25rem)',
-      color: '#94a3b8',
+      color: '#CCCCCC',
       textAlign: 'center',
-      marginBottom: 'clamp(2rem, 6vw, 3rem)',
+      marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
       lineHeight: '1.6',
     },
     form: {
-      background: 'var(--glass-bg)',
-      backdropFilter: 'var(--glass-blur)',
-      border: 'var(--glass-border)',
+      background: 'transparent',
+      backdropFilter: 'none',
+      border: 'none',
       borderRadius: 'var(--radius-lg)',
-      padding: 'clamp(2rem, 6vw, 3rem)',
-      boxShadow: 'var(--shadow-xl)',
+      padding: 'clamp(1.5rem, 4vw, 2rem)',
+      boxShadow: 'none',
     },
     inputGroup: {
-      marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
+      marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
     },
     label: {
       display: 'block',
@@ -152,33 +153,8 @@ const ContactSection = () => {
 
   return (
     <section style={contactStyles.section}>
-      {/* Background particles */}
-      <div style={{ position: 'absolute', inset: 0 }}>
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            style={{
-              position: 'absolute',
-              width: 'clamp(2px, 1vw, 4px)',
-              height: 'clamp(2px, 1vw, 4px)',
-              background: '#3b82f6',
-              borderRadius: '50%',
-              opacity: 0.3,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0.3, 1, 0.3],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      {/* Particle Background */}
+      <ParticleBackground particleCount={50} particleColor="auto" />
 
       <div style={contactStyles.container}>
         {/* Title */}
@@ -299,8 +275,8 @@ const ContactSection = () => {
         <motion.div
           style={{
             textAlign: 'center',
-            marginTop: 'clamp(2rem, 6vw, 3rem)',
-            padding: 'clamp(1.5rem, 4vw, 2rem)',
+            marginTop: 'clamp(1rem, 3vw, 1.5rem)',
+            padding: 'clamp(1rem, 3vw, 1.5rem)',
             background: 'rgba(139, 92, 246, 0.1)',
             borderRadius: '15px',
             border: '1px solid rgba(139, 92, 246, 0.3)',

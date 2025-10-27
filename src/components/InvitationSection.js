@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ParticleBackground from './ParticleBackground';
 
 const InvitationSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +12,7 @@ const InvitationSection = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
+};
 
   const handleViewInvitation = () => {
     setIsModalOpen(true);
@@ -22,47 +23,15 @@ const InvitationSection = () => {
       <section
         id="invitation"
         style={{
-          padding: '100px 20px',
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)',
+          padding: 'clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem)',
+          background: 'transparent',
           position: 'relative',
           overflow: 'hidden',
+          minHeight: 'auto',
         }}
       >
-        {/* Animated Background Elements */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            opacity: 0.1,
-          }}
-        >
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              style={{
-                position: 'absolute',
-                width: Math.random() * 4 + 2 + 'px',
-                height: Math.random() * 4 + 2 + 'px',
-                borderRadius: '50%',
-                background: '#00d9ff',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%',
-              }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.3, 1, 0.3],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
+        {/* Particle Background */}
+        <ParticleBackground particleCount={60} particleColor="auto" />
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
           {/* Section Header */}
@@ -70,19 +39,19 @@ const InvitationSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ textAlign: 'center', marginBottom: '60px' }}
+            style={{ textAlign: 'center', marginBottom: '15px' }}
           >
             <motion.h2
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
                 fontFamily: "'Orbitron', monospace",
                 fontWeight: 'bold',
-                background: 'linear-gradient(45deg, #00d9ff, #3b82f6, #8b5cf6)',
+                background: 'linear-gradient(45deg, #FFD700, #FF6B35, #00FF94)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                marginBottom: '20px',
-                textShadow: '0 0 30px rgba(0, 217, 255, 0.3)',
+                marginBottom: '5px',
+                textShadow: '0 0 30px rgba(255, 215, 0, 0.4)',
               }}
               animate={{
                 backgroundPosition: ['0%', '100%', '0%'],
@@ -98,13 +67,13 @@ const InvitationSection = () => {
             
             <motion.p
               style={{
-                fontSize: '1.2rem',
+                fontSize: '1rem',
                 color: '#94a3b8',
                 fontFamily: "'Rajdhani', sans-serif",
                 letterSpacing: '0.05em',
                 maxWidth: '600px',
                 margin: '0 auto',
-                lineHeight: '1.6',
+                lineHeight: '1.4',
               }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -120,44 +89,30 @@ const InvitationSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              background: 'transparent',
+              backdropFilter: 'none',
+              border: 'none',
               borderRadius: '20px',
-              padding: '40px',
+              padding: '10px',
               textAlign: 'center',
               position: 'relative',
               overflow: 'hidden',
-              boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
+              boxShadow: 'none',
             }}
           >
-            {/* Glowing Border Effect */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'linear-gradient(45deg, transparent, rgba(0, 217, 255, 0.1), transparent)',
-                borderRadius: '20px',
-                pointerEvents: 'none',
-              }}
-            />
-
             {/* Invitation Preview */}
             <motion.div
               style={{
                 width: '100%',
-                maxWidth: '400px',
-                height: '300px',
-                margin: '0 auto 30px',
-                background: 'linear-gradient(135deg, #1e1b4b, #312e81, #1e1b4b)',
+                maxWidth: '350px',
+                height: '200px',
+                margin: '0 auto 10px',
+                background: 'transparent',
                 borderRadius: '15px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                border: '2px solid rgba(0, 217, 255, 0.3)',
+                border: 'none',
                 position: 'relative',
                 overflow: 'hidden',
               }}
@@ -167,8 +122,8 @@ const InvitationSection = () => {
               <div style={{ textAlign: 'center', color: 'white' }}>
                 <motion.div
                   style={{
-                    fontSize: '4rem',
-                    marginBottom: '10px',
+                    fontSize: '2.5rem',
+                    marginBottom: '5px',
                     color: '#00d9ff',
                   }}
                   animate={{
@@ -183,9 +138,9 @@ const InvitationSection = () => {
                 </motion.div>
                 <h3
                   style={{
-                    fontSize: '1.5rem',
+                    fontSize: '1.1rem',
                     fontFamily: "'Orbitron', monospace",
-                    marginBottom: '5px',
+                    marginBottom: '2px',
                     background: 'linear-gradient(45deg, #00d9ff, #3b82f6)',
                     backgroundClip: 'text',
                     WebkitBackgroundClip: 'text',
@@ -225,7 +180,7 @@ const InvitationSection = () => {
             <div
               style={{
                 display: 'flex',
-                gap: '20px',
+                gap: '10px',
                 justifyContent: 'center',
                 flexWrap: 'wrap',
               }}
@@ -234,12 +189,12 @@ const InvitationSection = () => {
               <motion.button
                 onClick={handleViewInvitation}
                 style={{
-                  padding: '15px 30px',
-                  background: 'linear-gradient(45deg, #00d9ff, #3b82f6)',
+                  padding: '10px 20px',
+                  background: 'linear-gradient(45deg, #FFD700, #FF6B35)',
                   border: 'none',
                   borderRadius: '50px',
-                  color: 'white',
-                  fontSize: '1rem',
+                  color: '#0A0A0A',
+                  fontSize: '0.9rem',
                   fontFamily: "'Rajdhani', sans-serif",
                   fontWeight: '600',
                   letterSpacing: '0.05em',
@@ -247,11 +202,11 @@ const InvitationSection = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '10px',
-                  boxShadow: '0 10px 25px rgba(0, 217, 255, 0.3)',
+                  boxShadow: '0 10px 25px rgba(255, 215, 0, 0.3)',
                 }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 15px 35px rgba(0, 217, 255, 0.4)',
+                  boxShadow: '0 15px 35px rgba(255, 215, 0, 0.4)',
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -263,12 +218,12 @@ const InvitationSection = () => {
               <motion.button
                 onClick={handleDownload}
                 style={{
-                  padding: '15px 30px',
-                  background: 'linear-gradient(45deg, #8b5cf6, #d946ef)',
+                  padding: '10px 20px',
+                  background: 'linear-gradient(45deg, #00FF94, #9D4EDD)',
                   border: 'none',
                   borderRadius: '50px',
-                  color: 'white',
-                  fontSize: '1rem',
+                  color: '#0A0A0A',
+                  fontSize: '0.9rem',
                   fontFamily: "'Rajdhani', sans-serif",
                   fontWeight: '600',
                   letterSpacing: '0.05em',
@@ -276,11 +231,11 @@ const InvitationSection = () => {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '10px',
-                  boxShadow: '0 10px 25px rgba(139, 92, 246, 0.3)',
+                  boxShadow: '0 10px 25px rgba(0, 255, 148, 0.3)',
                 }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: '0 15px 35px rgba(139, 92, 246, 0.4)',
+                  boxShadow: '0 15px 35px rgba(0, 255, 148, 0.4)',
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -295,10 +250,10 @@ const InvitationSection = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
               style={{
-                marginTop: '30px',
-                padding: '20px',
-                background: 'rgba(0, 217, 255, 0.05)',
-                border: '1px solid rgba(0, 217, 255, 0.1)',
+                marginTop: '10px',
+                padding: '10px',
+                background: 'transparent',
+                border: 'none',
                 borderRadius: '15px',
               }}
             >

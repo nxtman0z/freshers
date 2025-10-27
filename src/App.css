@@ -1,17 +1,66 @@
 /* Enhanced Typography & Design System */
+/* Enhanced Design System Variables */
 :root {
-  /* Font Families */
-  --font-heading: 'Orbitron', 'Rajdhani', 'Arial Black', sans-serif;
-  --font-subheading: 'Rajdhani', 'Orbitron', sans-serif;
-  --font-body: 'Inter', 'Poppins', 'Segoe UI', sans-serif;
-  --font-button: 'Rajdhani', 'Inter', sans-serif;
+  /* Color Palette - Black & Gold Theme */
+  --primary: #FFD700;        /* Gold */
+  --primary-dark: #B8860B;   /* Dark Gold */
+  --primary-light: #FFFF99;  /* Light Gold */
+  --secondary: #FF6B35;      /* Orange Accent */
+  --secondary-dark: #CC4A1C; /* Dark Orange */
+  --accent: #00FF94;         /* Neon Green */
+  --accent-purple: #9D4EDD;  /* Purple Accent */
   
-  /* Font Sizes (Responsive) */
-  --font-h1: clamp(2.5rem, 6vw, 5rem);
-  --font-h2: clamp(2rem, 5vw, 3.5rem);
+  /* Background Colors */
+  --bg-primary: #0A0A0A;     /* Deep Black */
+  --bg-secondary: #1A1A1A;   /* Dark Gray */
+  --bg-tertiary: #2A2A2A;    /* Medium Gray */
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;    /* Pure White */
+  --text-secondary: #CCCCCC;  /* Light Gray */
+  --text-tertiary: #999999;   /* Medium Gray */
+  --text-contrast: #FFD700;   /* Gold for emphasis */
+  --text-muted: #666666;      /* Muted Gray */
+  
+  /* Background Gradients */
+  --background-gradient: linear-gradient(135deg, 
+    #0A0A0A 0%, 
+    #1A1A1A 25%, 
+    #2A1810 50%, 
+    #1A1A1A 75%, 
+    #0A0A0A 100%);
+  
+  --gradient-primary: linear-gradient(135deg, #FFD700, #FF6B35);
+  --gradient-secondary: linear-gradient(135deg, #00FF94, #9D4EDD);
+  --gradient-horizontal: linear-gradient(90deg, #FFD700, #FF6B35, #00FF94);
+  
+  /* Glass Effect */
+    /* Glass Effects - Made invisible */
+  --glass-bg: transparent;
+  --glass-blur: blur(0px);
+  --glass-border: 1px solid transparent;
+  
+  /* Button Styles */
+  --button-primary-bg: linear-gradient(135deg, #FFD700, #FF6B35);
+  --button-primary-border: 1px solid rgba(255, 215, 0, 0.3);
+  --button-primary-text: #0A0A0A;
+  
+  --button-secondary-bg: rgba(26, 26, 26, 0.4);
+  --button-secondary-border: 1px solid rgba(255, 215, 0, 0.2);
+  --button-secondary-text: #FFD700;
+  
+  /* Typography */
+  --font-heading: 'Orbitron', 'Arial Black', sans-serif;
+  --font-subheading: 'Rajdhani', 'Arial', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-button: 'Rajdhani', sans-serif;
+  
+  /* Font Sizes */
+  --font-h1: clamp(3rem, 10vw, 6rem);
+  --font-h2: clamp(2rem, 6vw, 3.5rem);
   --font-h3: clamp(1.5rem, 4vw, 2.5rem);
   --font-body: clamp(1rem, 2.5vw, 1.125rem);
-  --font-button: clamp(0.875rem, 2.5vw, 1rem);
+  --font-small: clamp(0.875rem, 2vw, 1rem);
   
   /* Font Weights */
   --weight-light: 300;
@@ -21,23 +70,31 @@
   --weight-bold: 700;
   --weight-black: 900;
   
-  /* Enhanced Color Palette */
-  --primary-gradient: linear-gradient(135deg, #00d9ff 0%, #3b82f6 50%, #8b5cf6 100%);
-  --secondary-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #f59e0b 100%);
-  --background-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #312e81 50%, #1e1b4b 75%, #0f172a 100%);
-  --text-primary: #EFEFEF;
-  --text-secondary: #C1C1C1;
-  --text-accent: #00d9ff;
-  --text-contrast: #ffffff;
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
   
-  /* Glass Effect Variables */
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   
-  /* Animation Variables */
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Shadows */
+    /* Shadows - Removed */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+  
+  /* Glow Effects */
+  --glow-gold: 0 0 20px rgba(255, 215, 0, 0.4);
+  --glow-orange: 0 0 20px rgba(255, 107, 53, 0.4);
+  --glow-green: 0 0 20px rgba(0, 255, 148, 0.4);
 }
 
 /* Global Typography Reset */
@@ -68,10 +125,11 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(ellipse at top left, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at top right, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom left, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse at top left, rgba(255, 107, 107, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at top right, rgba(255, 215, 0, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(76, 201, 240, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.95) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -85,8 +143,10 @@ main {
 /* Section spacing and styling */
 section {
   position: relative;
-  padding: 100px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
 }
 
 /* Smooth scrolling */
@@ -232,32 +292,26 @@ p, .body-text {
 
 /* Enhanced Utility Classes */
 .card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
   border-radius: var(--radius-lg);
   padding: 30px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--gradient-horizontal);
-  opacity: 0.6;
+  display: none;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-xl);
-  border-color: rgba(0, 217, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: none;
+  border-color: transparent;
+  background: transparent;
 }
 
 .btn-primary {

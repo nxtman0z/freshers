@@ -42,6 +42,11 @@ function App() {
                 <HeroSection />
               </section>
 
+              {/* Invitation Section */}
+              <section id="invitation">
+                <InvitationSection />
+              </section>
+
               {/* About Section */}
               <section id="about">
                 <AboutSection />
@@ -50,11 +55,6 @@ function App() {
               {/* Event Section */}
               <section id="event">
                 <EventSection />
-              </section>
-
-              {/* Invitation Section */}
-              <section id="invitation">
-                <InvitationSection />
               </section>
 
               {/* Contact Section */}

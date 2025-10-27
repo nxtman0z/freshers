@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import CountdownTimer from './CountdownTimer';
 import Video from './Video';
+import ParticleBackground from './ParticleBackground';
 
 const HeroSection = () => {
   const canvasRef = useRef(null);
@@ -79,12 +80,11 @@ const HeroSection = () => {
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
-      padding: 'clamp(6rem, 12vw, 8rem) clamp(1rem, 4vw, 2rem) clamp(4rem, 8vw, 6rem)',
+      padding: 'clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem)',
       margin: '0',
       border: 'none',
       outline: 'none',
-      marginBottom: '-1px',
-      background: 'var(--background-gradient)',
+      background: 'transparent',
     },
     canvas: {
       position: 'absolute',
@@ -123,7 +123,7 @@ const HeroSection = () => {
       fontSize: 'clamp(3rem, 10vw, 6rem)',
       fontFamily: 'var(--font-heading)',
       fontWeight: 'var(--weight-black)',
-      background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #00d9ff)',
+      background: 'linear-gradient(45deg, #FFD700, #FF6B35, #00FF94)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
@@ -131,7 +131,7 @@ const HeroSection = () => {
       letterSpacing: '0.02em',
       marginTop: 'clamp(2rem, 6vw, 4rem)',
       marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
-      filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.3))',
+      filter: 'drop-shadow(0 0 30px rgba(255, 215, 0, 0.5))',
       wordBreak: 'break-word',
       textTransform: 'uppercase',
     },
@@ -139,10 +139,10 @@ const HeroSection = () => {
       fontSize: 'clamp(1.5rem, 5vw, 3rem)',
       fontFamily: 'var(--font-subheading)',
       fontWeight: 'var(--weight-semibold)',
-      color: '#ffd700',
+      color: '#FFD700',
       marginTop: 'clamp(0.5rem, 2vw, 1rem)',
       marginBottom: 'clamp(1rem, 3vw, 2rem)',
-      textShadow: '0 0 20px rgba(255, 212, 0, 0.5)',
+      textShadow: '0 0 20px rgba(255, 215, 0, 0.6)',
       letterSpacing: '0.01em',
       wordBreak: 'break-word',
     },
@@ -168,7 +168,7 @@ const HeroSection = () => {
     universityName: {
       fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
       fontFamily: 'var(--font-body)',
-      color: '#c084fc',
+      color: '#FF6B35',
       fontWeight: 'var(--weight-medium)',
       lineHeight: '1.4',
       letterSpacing: '0.01em',
@@ -206,11 +206,8 @@ const HeroSection = () => {
 
   return (
     <section style={heroStyles.section}>
-      {/* Animated canvas background */}
-      <canvas
-        ref={canvasRef}
-        style={heroStyles.canvas}
-      />
+      {/* Particle Background */}
+      <ParticleBackground particleCount={100} particleColor="auto" />
 
       {/* Floating geometric shapes */}
       <div style={heroStyles.shapesContainer}>

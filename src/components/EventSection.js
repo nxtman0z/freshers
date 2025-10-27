@@ -1,22 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ParticleBackground from './ParticleBackground';
 
 const EventSection = () => {
   const eventStyles = {
     section: {
-      padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem)',
-      background: 'var(--background-gradient)',
+      padding: 'clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)',
+      background: 'transparent',
       position: 'relative',
       overflow: 'hidden',
-      minHeight: '100vh',
     },
     
-    // Background elements
+    // Background elements - removed for uniform look
     backgroundOverlay: {
-      position: 'absolute',
-      inset: 0,
-      background: 'radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)',
-      opacity: 0.6,
+      display: 'none',
     },
     
     container: {
@@ -29,14 +26,14 @@ const EventSection = () => {
     // Header styles
     header: {
       textAlign: 'center',
-      marginBottom: 'clamp(3rem, 6vw, 4rem)',
+      marginBottom: 'clamp(2rem, 4vw, 3rem)',
     },
     
     title: {
       fontSize: 'clamp(3rem, 8vw, 4.5rem)',
       fontWeight: 'var(--weight-black)',
       fontFamily: 'var(--font-heading)',
-      background: 'linear-gradient(45deg, #6366f1, #14b8a6, #3b82f6)',
+      background: 'linear-gradient(45deg, #FFD700, #FF6B35, #00FF94)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
@@ -59,15 +56,15 @@ const EventSection = () => {
     cardsContainer: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: 'clamp(1.5rem, 4vw, 2.5rem)',
+      gap: 'clamp(1rem, 3vw, 2rem)',
       maxWidth: '900px',
       margin: '0 auto',
     },
     
-    // Card base styles
+    // Card base styles - Made invisible
     cardBase: {
-      background: 'var(--glass-bg)',
-      backdropFilter: 'var(--glass-blur)',
+      background: 'transparent',
+      backdropFilter: 'none',
       borderRadius: 'var(--radius-xl)',
       padding: 'clamp(1.5rem, 4vw, 2.5rem)',
       position: 'relative',
@@ -75,20 +72,8 @@ const EventSection = () => {
       cursor: 'pointer',
       transition: 'all 0.3s ease',
       willChange: 'transform',
-    },
-    
-    // Card 1 - Poster Release (Teal-Emerald - Same as Main Event)
-    posterCard: {
-      background: 'rgba(20, 184, 166, 0.15)',
-      border: '1px solid rgba(20, 184, 166, 0.3)',
-      boxShadow: 'var(--shadow-lg)',
-    },
-    
-    // Card 2 - Main Event (Teal-Emerald) 
-    mainCard: {
-      background: 'rgba(20, 184, 166, 0.15)',
-      border: '1px solid rgba(20, 184, 166, 0.3)',
-      boxShadow: 'var(--shadow-lg)',
+      border: 'none',
+      boxShadow: 'none',
     },
     
     // Card content
@@ -213,33 +198,8 @@ const EventSection = () => {
 
   return (
     <section style={eventStyles.section}>
-      {/* Background overlay */}
-      <div style={eventStyles.backgroundOverlay} />
-      
-      {/* Floating particles */}
-      <FloatingParticles />
-
-      {/* Animated background waves */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(120deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1))',
-          opacity: 0.4,
-        }}
-        animate={{
-          background: [
-            'linear-gradient(120deg, rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1))',
-            'linear-gradient(240deg, rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1))',
-            'linear-gradient(360deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1), rgba(20, 184, 166, 0.1))',
-          ],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: 'linear',
-        }}
-      />
+      {/* Particle Background */}
+      <ParticleBackground particleCount={70} particleColor="auto" />
 
       <div style={eventStyles.container}>
         {/* Header */}
@@ -279,10 +239,7 @@ const EventSection = () => {
           
           {/* Poster Release Card */}
           <motion.div
-            style={{
-              ...eventStyles.cardBase,
-              ...eventStyles.posterCard,
-            }}
+            style={eventStyles.cardBase}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -297,15 +254,13 @@ const EventSection = () => {
             viewport={{ once: true }}
             whileHover={{
               y: -8,
-              boxShadow: '0 12px 48px rgba(20, 184, 166, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 12px 48px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
               scale: 1.02,
             }}
             animate={{
               y: [0, -3, 0],
             }}
           >
-            <AnimatedBorder gradient="linear-gradient(45deg, #14b8a6, #10b981, #14b8a6)" />
-            
             <motion.span
               style={eventStyles.cardIcon}
               animate={{
@@ -345,10 +300,7 @@ const EventSection = () => {
 
           {/* Main Event Card */}
           <motion.div
-            style={{
-              ...eventStyles.cardBase,
-              ...eventStyles.mainCard,
-            }}
+            style={eventStyles.cardBase}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -364,15 +316,13 @@ const EventSection = () => {
             viewport={{ once: true }}
             whileHover={{
               y: -8,
-              boxShadow: '0 12px 48px rgba(20, 184, 166, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 12px 48px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
               scale: 1.02,
             }}
             animate={{
               y: [0, -3, 0],
             }}
           >
-            <AnimatedBorder gradient="linear-gradient(45deg, #14b8a6, #10b981, #14b8a6)" />
-            
             <motion.span
               style={eventStyles.cardIcon}
               animate={{
