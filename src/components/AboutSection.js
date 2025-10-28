@@ -6,7 +6,7 @@ const AboutSection = () => {
   const aboutStyles = {
     section: {
       padding: '0 clamp(1rem, 4vw, 2rem) clamp(1rem, 3vw, 2rem)',
-      background: 'transparent',
+      background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
       position: 'relative',
       overflow: 'hidden',
       minHeight: 'auto',

@@ -23,12 +23,7 @@
   --text-muted: #666666;      /* Muted Gray */
   
   /* Background Gradients */
-  --background-gradient: linear-gradient(135deg, 
-    #0A0A0A 0%, 
-    #1A1A1A 25%, 
-    #2A1810 50%, 
-    #1A1A1A 75%, 
-    #0A0A0A 100%);
+  --background-gradient: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
   
   --gradient-primary: linear-gradient(135deg, #FFD700, #FF6B35);
   --gradient-secondary: linear-gradient(135deg, #00FF94, #9D4EDD);

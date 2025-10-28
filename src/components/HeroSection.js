@@ -97,34 +97,6 @@ const HeroSection = () => {
       border: 'none',
       outline: 'none',
     },
-    shapesContainer: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: 1,
-      opacity: 0.3,
-    },
-    shape: {
-      position: 'absolute',
-      opacity: 0.4,
-      border: '1px solid',
-      borderColor: '#00f5ff',
-    },
-    gridPattern: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundImage: `
-        linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px)
-      `,
-      backgroundSize: '50px 50px',
-      zIndex: 1,
-    },
     content: {
       position: 'relative',
       zIndex: 20,
@@ -231,39 +203,6 @@ const HeroSection = () => {
       {/* Particle Background */}
       <ParticleBackground particleCount={100} particleColor="auto" />
 
-      {/* Grid pattern background */}
-      <div style={heroStyles.gridPattern}></div>
-
-      {/* Floating geometric shapes */}
-      <div style={heroStyles.shapesContainer}>
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            style={{
-              ...heroStyles.shape,
-              left: `${Math.random() * 80 + 10}%`,
-              top: `${Math.random() * 80 + 10}%`,
-              width: `${40 + i * 12}px`,
-              height: `${40 + i * 12}px`,
-              borderColor: i % 3 === 0 ? '#00f5ff' : i % 3 === 1 ? '#0080ff' : '#FFD700',
-              borderRadius: i % 2 === 0 ? '0' : '50%',
-              transform: i % 2 === 0 ? 'rotate(45deg)' : 'none',
-              boxShadow: `0 0 20px ${i % 3 === 0 ? 'rgba(0, 245, 255, 0.3)' : i % 3 === 1 ? 'rgba(0, 128, 255, 0.3)' : 'rgba(255, 215, 0, 0.3)'}`,
-            }}
-            animate={{
-              rotate: [0, 360],
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 8 + i * 1.5,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          />
-        ))}
-      </div>
-
       {/* Main content */}
       <motion.div
         style={heroStyles.content}
@@ -277,31 +216,22 @@ const HeroSection = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <motion.h1
-            style={heroStyles.title}
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-          >
+          <h1 style={heroStyles.title}>
             UDBHAV
-          </motion.h1>
+          </h1>
           <motion.div
             style={heroStyles.subtitle}
             animate={{
               textShadow: [
-                '0 0 20px rgba(255, 212, 0, 0.5)',
-                '0 0 40px rgba(255, 212, 0, 0.8)',
-                '0 0 20px rgba(255, 212, 0, 0.5)',
+                '0 0 20px rgba(255, 215, 0, 0.6)',
+                '0 0 30px rgba(255, 215, 0, 0.8)',
+                '0 0 20px rgba(255, 215, 0, 0.6)',
               ],
             }}
             transition={{
-              duration: 2,
+              duration: 4,
               repeat: Infinity,
+              ease: 'easeInOut',
             }}
           >
             2.0
@@ -373,18 +303,10 @@ const HeroSection = () => {
             }}
             onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
             whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 30px rgba(139, 92, 246, 0.8)',
+              scale: 1.02,
+              boxShadow: '0 0 25px rgba(139, 92, 246, 0.7)',
             }}
-            whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                '0 0 20px rgba(139, 92, 246, 0.5)', 
-                '0 0 30px rgba(139, 92, 246, 0.8)', 
-                '0 0 20px rgba(139, 92, 246, 0.5)'
-              ],
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
+            whileTap={{ scale: 0.98 }}
           >
             ✨ Registration
           </motion.button>
@@ -405,10 +327,10 @@ const HeroSection = () => {
             }}
             onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
             whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 25px rgba(139, 92, 246, 0.8)',
+              scale: 1.02,
+              boxShadow: '0 0 20px rgba(139, 92, 246, 0.7)',
             }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.98 }}
           >
             🎯 Activity Participation
           </motion.button>
@@ -429,18 +351,10 @@ const HeroSection = () => {
             }}
             onClick={() => setIsVideoModalOpen(true)}
             whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 25px rgba(139, 92, 246, 0.8)',
+              scale: 1.02,
+              boxShadow: '0 0 20px rgba(139, 92, 246, 0.7)',
             }}
-            whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                '0 0 15px rgba(139, 92, 246, 0.5)', 
-                '0 0 25px rgba(139, 92, 246, 0.8)', 
-                '0 0 15px rgba(139, 92, 246, 0.5)'
-              ],
-            }}
-            transition={{ duration: 2.5, repeat: Infinity }}
+            whileTap={{ scale: 0.98 }}
           >
             🎬 Watch the Vibe
           </motion.button>
@@ -450,22 +364,24 @@ const HeroSection = () => {
         <motion.div
           style={heroStyles.scrollIndicator}
           animate={{
-            y: [0, 10, 0],
+            y: [0, 8, 0],
           }}
           transition={{
-            duration: 2,
+            duration: 3,
             repeat: Infinity,
+            ease: 'easeInOut',
           }}
         >
           <div style={heroStyles.scrollBox}>
             <motion.div
               style={heroStyles.scrollDot}
               animate={{
-                scaleY: [1, 0.5, 1],
+                scaleY: [1, 0.7, 1],
               }}
               transition={{
-                duration: 2,
+                duration: 3,
                 repeat: Infinity,
+                ease: 'easeInOut',
               }}
             />
           </div>

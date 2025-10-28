@@ -38,6 +38,9 @@ const CountdownTimer = () => {
     return time.toString().padStart(2, '0');
   };
 
+  // Check if countdown is finished
+  const isEventLive = timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0;
+
   const countdownStyles = {
     container: {
       display: 'flex',
@@ -92,6 +95,34 @@ const CountdownTimer = () => {
       color: '#8b5cf6',
       fontWeight: 'bold',
       animation: 'pulse 1s infinite',
+    },
+    liveMessage: {
+      textAlign: 'center',
+      padding: 'clamp(2rem, 6vw, 3rem)',
+      background: 'linear-gradient(135deg, rgba(0, 255, 148, 0.1), rgba(255, 215, 0, 0.1))',
+      borderRadius: '20px',
+      border: '2px solid rgba(0, 255, 148, 0.3)',
+      boxShadow: '0 0 30px rgba(0, 255, 148, 0.2)',
+    },
+    liveTitle: {
+      fontSize: 'clamp(2rem, 6vw, 4rem)',
+      fontFamily: "'Orbitron', monospace",
+      fontWeight: '900',
+      background: 'linear-gradient(45deg, #00FF94, #FFD700, #FF6B35)',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      textShadow: '0 0 30px rgba(0, 255, 148, 0.6)',
+      marginBottom: '1rem',
+      letterSpacing: '0.05em',
+    },
+    liveSubtitle: {
+      fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
+      color: '#ffffff',
+      fontFamily: "'Rajdhani', sans-serif",
+      fontWeight: '600',
+      textShadow: '0 0 15px rgba(255, 255, 255, 0.5)',
+      margin: 0,
     }
   };
 
@@ -101,26 +132,50 @@ const CountdownTimer = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
     >
-      <div style={countdownStyles.title}>
-        🎉 Event Countdown
-      </div>
+      {isEventLive ? (
+        // Event is Live Message
+        <motion.div
+          style={countdownStyles.liveMessage}
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.h2
+            style={countdownStyles.liveTitle}
+            animate={{
+              textShadow: [
+                '0 0 30px rgba(0, 255, 148, 0.6)',
+                '0 0 50px rgba(0, 255, 148, 0.8)',
+                '0 0 30px rgba(0, 255, 148, 0.6)',
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            🎉 FRESHERS IS OFFICIAL LIVE NOW! 🎉
+          </motion.h2>
+          <motion.p
+            style={countdownStyles.liveSubtitle}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            Welcome to UDBHAV 2.0 - The celebration has begun! 🚀
+          </motion.p>
+        </motion.div>
+      ) : (
+        // Countdown Timer
+        <>
+          <div style={countdownStyles.title}>
+            🎉 Event Countdown
+          </div>
       <div style={countdownStyles.container}>
         <motion.div
           style={countdownStyles.timeBox}
-          whileHover={{ scale: 1.05, y: -5 }}
-          animate={{
-            boxShadow: [
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-              '0 8px 32px rgba(59, 130, 246, 0.2)',
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-            ]
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-            }
-          }}
+          whileHover={{ scale: 1.02, y: -2 }}
         >
           <span style={countdownStyles.timeNumber}>{formatTime(timeLeft.days)}</span>
           <span style={countdownStyles.timeLabel}>Days</span>
@@ -130,21 +185,7 @@ const CountdownTimer = () => {
 
         <motion.div
           style={countdownStyles.timeBox}
-          whileHover={{ scale: 1.05, y: -5 }}
-          animate={{
-            boxShadow: [
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-              '0 8px 32px rgba(139, 92, 246, 0.2)',
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-            ]
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-              delay: 0.5,
-            }
-          }}
+          whileHover={{ scale: 1.02, y: -2 }}
         >
           <span style={countdownStyles.timeNumber}>{formatTime(timeLeft.hours)}</span>
           <span style={countdownStyles.timeLabel}>Hours</span>
@@ -154,21 +195,7 @@ const CountdownTimer = () => {
 
         <motion.div
           style={countdownStyles.timeBox}
-          whileHover={{ scale: 1.05, y: -5 }}
-          animate={{
-            boxShadow: [
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-              '0 8px 32px rgba(0, 217, 255, 0.2)',
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-            ]
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-              delay: 1,
-            }
-          }}
+          whileHover={{ scale: 1.02, y: -2 }}
         >
           <span style={countdownStyles.timeNumber}>{formatTime(timeLeft.minutes)}</span>
           <span style={countdownStyles.timeLabel}>Minutes</span>
@@ -178,26 +205,14 @@ const CountdownTimer = () => {
 
         <motion.div
           style={countdownStyles.timeBox}
-          whileHover={{ scale: 1.05, y: -5 }}
-          animate={{
-            boxShadow: [
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-              '0 8px 32px rgba(255, 212, 0, 0.2)',
-              '0 8px 32px rgba(0, 0, 0, 0.3)',
-            ]
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-              delay: 1.5,
-            }
-          }}
+          whileHover={{ scale: 1.02, y: -2 }}
         >
           <span style={countdownStyles.timeNumber}>{formatTime(timeLeft.seconds)}</span>
           <span style={countdownStyles.timeLabel}>Seconds</span>
         </motion.div>
-      </div>
+          </div>
+        </>
+      )}
     </motion.div>
   );
 };

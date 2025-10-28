@@ -47,7 +47,7 @@ const ContactSection = () => {
   const contactStyles = {
     section: {
       padding: 'clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)',
-      background: 'transparent',
+      background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
       position: 'relative',
       overflow: 'hidden',
     },
@@ -164,6 +164,9 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          animate={{
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+          }}
         >
           Get in Touch 📞
         </motion.h2>
@@ -187,11 +190,17 @@ const ContactSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div style={contactStyles.inputGroup}>
+          <motion.div 
+            style={contactStyles.inputGroup}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
             <label htmlFor="phone" style={contactStyles.label}>
                Phone Number *
             </label>
-            <input
+            <motion.input
               type="tel"
               id="phone"
               name="phone"
@@ -206,14 +215,21 @@ const ContactSection = () => {
                   boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)',
                 }
               }}
+              whileFocus={{ scale: 1.02 }}
             />
-          </div>
+          </motion.div>
 
-          <div style={contactStyles.inputGroup}>
+          <motion.div 
+            style={contactStyles.inputGroup}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
             <label htmlFor="subject" style={contactStyles.label}>
                Subject/Message *
             </label>
-            <textarea
+            <motion.textarea
               id="subject"
               name="subject"
               value={formData.subject}
@@ -227,8 +243,9 @@ const ContactSection = () => {
                   boxShadow: '0 0 0 3px rgba(59, 130, 246, 0.1)',
                 }
               }}
+              whileFocus={{ scale: 1.02 }}
             />
-          </div>
+          </motion.div>
 
           <motion.button
             type="submit"

@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import ParticleBackground from './ParticleBackground';
 
 const InvitationSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/invitation.pdf';
-    link.download = 'UDBHAV_2.0_Invitation.pdf';
+    link.href = '/invitation.png';
+    link.download = 'UDBHAV_2.0_Invitation.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 };
-
-  const handleViewInvitation = () => {
-    setIsModalOpen(true);
-  };
 
   return (
     <>
@@ -24,7 +18,7 @@ const InvitationSection = () => {
         id="invitation"
         style={{
           padding: 'clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem)',
-          background: 'transparent',
+          background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
           position: 'relative',
           overflow: 'hidden',
           minHeight: 'auto',
@@ -112,55 +106,26 @@ const InvitationSection = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                border: 'none',
+                border: '2px solid rgba(0, 245, 255, 0.3)',
                 position: 'relative',
                 overflow: 'hidden',
+                cursor: 'pointer',
               }}
               whileHover={{ scale: 1.02 }}
             >
-              {/* PDF Icon */}
-              <div style={{ textAlign: 'center', color: 'white' }}>
-                <motion.div
-                  style={{
-                    fontSize: '2.5rem',
-                    marginBottom: '5px',
-                    color: '#00d9ff',
-                  }}
-                  animate={{
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                >
-                  📋
-                </motion.div>
-                <h3
-                  style={{
-                    fontSize: '1.1rem',
-                    fontFamily: "'Orbitron', monospace",
-                    marginBottom: '2px',
-                    background: 'linear-gradient(45deg, #00d9ff, #3b82f6)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  UDBHAV 2.0
-                </h3>
-                <p
-                  style={{
-                    color: '#94a3b8',
-                    fontSize: '1rem',
-                    fontFamily: "'Rajdhani', sans-serif",
-                  }}
-                >
-                  Official Invitation
-                </p>
-              </div>
-
-              {/* Hover Overlay */}
+              {/* Invitation Thumbnail */}
+              <img
+                src="/invitation.png"
+                alt="UDBHAV 2.0 Invitation Preview"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '13px',
+                }}
+              />
+              
+              {/* View Overlay */}
               <motion.div
                 style={{
                   position: 'absolute',
@@ -168,12 +133,20 @@ const InvitationSection = () => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(45deg, rgba(0, 217, 255, 0.1), rgba(59, 130, 246, 0.1))',
+                  background: 'rgba(0, 0, 0, 0.7)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   opacity: 0,
+                  color: 'white',
+                  fontSize: '1.2rem',
+                  fontWeight: 'bold',
                 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
-              />
+              >
+                👁️ Click to View
+              </motion.div>
             </motion.div>
 
             {/* Action Buttons */}
@@ -185,35 +158,6 @@ const InvitationSection = () => {
                 flexWrap: 'wrap',
               }}
             >
-              {/* View Button */}
-              <motion.button
-                onClick={handleViewInvitation}
-                style={{
-                  padding: '10px 20px',
-                  background: 'linear-gradient(45deg, #FFD700, #FF6B35)',
-                  border: 'none',
-                  borderRadius: '50px',
-                  color: '#0A0A0A',
-                  fontSize: '0.9rem',
-                  fontFamily: "'Rajdhani', sans-serif",
-                  fontWeight: '600',
-                  letterSpacing: '0.05em',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  boxShadow: '0 10px 25px rgba(255, 215, 0, 0.3)',
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: '0 15px 35px rgba(255, 215, 0, 0.4)',
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>👁️</span>
-                View Invitation
-              </motion.button>
-
               {/* Download Button */}
               <motion.button
                 onClick={handleDownload}
@@ -238,9 +182,17 @@ const InvitationSection = () => {
                   boxShadow: '0 15px 35px rgba(0, 255, 148, 0.4)',
                 }}
                 whileTap={{ scale: 0.95 }}
+                animate={{
+                  boxShadow: [
+                    '0 10px 25px rgba(0, 255, 148, 0.3)',
+                    '0 15px 35px rgba(0, 255, 148, 0.5)',
+                    '0 10px 25px rgba(0, 255, 148, 0.3)',
+                  ],
+                }}
+                transition={{ duration: 3.5, repeat: Infinity }}
               >
                 <span>💾</span>
-                Download PDF
+                Download Image
               </motion.button>
             </div>
 
@@ -272,87 +224,6 @@ const InvitationSection = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Modal for PDF Viewer */}
-      {isModalOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          style={{
-            position: 'fixed',
-            top: '80px',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0, 0, 0, 0.95)',
-            zIndex: 40,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px',
-            overflow: 'hidden',
-          }}
-          onClick={() => setIsModalOpen(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.8 }}
-            style={{
-              background: 'white',
-              borderRadius: '15px',
-              width: '90vw',
-              maxWidth: '500px',
-              height: '80vh',
-              maxHeight: '650px',
-              position: 'relative',
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column',
-              marginTop: '20px',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsModalOpen(false)}
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                background: '#ef4444',
-                border: 'none',
-                borderRadius: '50%',
-                width: '35px',
-                height: '35px',
-                color: 'white',
-                fontSize: '1.1rem',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 45,
-                boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
-              }}
-            >
-              ✕
-            </button>
-
-            {/* PDF Embed */}
-            <iframe
-              src="/invitation.pdf"
-              style={{
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                borderRadius: '15px',
-              }}
-              title="UDBHAV 2.0 Invitation"
-            />
-          </motion.div>
-        </motion.div>
-      )}
     </>
   );
 };

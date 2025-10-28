@@ -6,7 +6,7 @@ const EventSection = () => {
   const eventStyles = {
     section: {
       padding: 'clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem)',
-      background: 'transparent',
+      background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
       position: 'relative',
       overflow: 'hidden',
     },
@@ -196,24 +196,13 @@ const EventSection = () => {
             }}
             viewport={{ once: true }}
             whileHover={{
-              y: -8,
-              boxShadow: '0 12px 48px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-              scale: 1.02,
-            }}
-            animate={{
-              y: [0, -3, 0],
+              y: -3,
+              boxShadow: '0 8px 32px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              scale: 1.01,
             }}
           >
             <motion.span
               style={eventStyles.cardIcon}
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.8, 1, 0.8],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-              }}
             >
               🌈
             </motion.span>
@@ -258,46 +247,22 @@ const EventSection = () => {
             }}
             viewport={{ once: true }}
             whileHover={{
-              y: -8,
-              boxShadow: '0 12px 48px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-              scale: 1.02,
-            }}
-            animate={{
-              y: [0, -3, 0],
+              y: -3,
+              boxShadow: '0 8px 32px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+              scale: 1.01,
             }}
           >
             <motion.span
               style={eventStyles.cardIcon}
-              animate={{
-                y: [0, -5, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
             >
               📅
             </motion.span>
             
             <h3 style={eventStyles.cardTitle}>UDBHAV 2.0 - Freshers Welcome</h3>
             
-            <motion.div
-              style={eventStyles.eventDate}
-              animate={{
-                textShadow: [
-                  '0 0 15px rgba(0, 217, 255, 0.5)',
-                  '0 0 25px rgba(0, 217, 255, 0.8)',
-                  '0 0 15px rgba(0, 217, 255, 0.5)',
-                ],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-              }}
-            >
-              📅 31st October 2025
-            </motion.div>
+            <div style={eventStyles.eventDate}>
+              📅 31st October 2025 | 🕘 11:00 AM - 5:30 PM
+            </div>
             
             <div style={eventStyles.eventTime}>⏰ 11.00 AM Onwards</div>
             <div style={eventStyles.eventVenue}>📍 Gym Area, CUTM Campus</div>
