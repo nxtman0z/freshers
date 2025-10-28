@@ -139,63 +139,6 @@ const EventSection = () => {
     },
   };
 
-  // Floating particles component
-  const FloatingParticles = () => (
-    <div style={{
-      position: 'absolute',
-      inset: 0,
-      overflow: 'hidden',
-      pointerEvents: 'none',
-    }}>
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          style={{
-            position: 'absolute',
-            width: '4px',
-            height: '4px',
-            background: 'rgba(255, 255, 255, 0.3)',
-            borderRadius: '50%',
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            x: [0, 30, -30, 0],
-            y: [0, -50, 50, 0],
-            opacity: [0.3, 0.8, 0.3],
-          }}
-          transition={{
-            duration: Math.random() * 8 + 6,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      ))}
-    </div>
-  );
-
-  // Animated border component for cards
-  const AnimatedBorder = ({ gradient }) => (
-    <motion.div
-      style={{
-        position: 'absolute',
-        inset: '-1px',
-        borderRadius: '24px',
-        background: gradient,
-        padding: '1px',
-        zIndex: -1,
-      }}
-      animate={{
-        background: [gradient, gradient.replace('45deg', '135deg'), gradient.replace('45deg', '225deg'), gradient],
-      }}
-      transition={{
-        duration: 8,
-        repeat: Infinity,
-        ease: 'linear',
-      }}
-    />
-  );
-
   return (
     <section style={eventStyles.section}>
       {/* Particle Background */}
@@ -353,7 +296,7 @@ const EventSection = () => {
                 repeat: Infinity,
               }}
             >
-              📅 29th October 2025
+              📅 31st October 2025
             </motion.div>
             
             <div style={eventStyles.eventTime}>⏰ 11.00 AM Onwards</div>

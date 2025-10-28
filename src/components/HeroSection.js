@@ -84,7 +84,7 @@ const HeroSection = () => {
       margin: '0',
       border: 'none',
       outline: 'none',
-      background: 'transparent',
+      background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
     },
     canvas: {
       position: 'absolute',
@@ -103,13 +103,27 @@ const HeroSection = () => {
       left: 0,
       right: 0,
       bottom: 0,
-      zIndex: 10,
+      zIndex: 1,
+      opacity: 0.3,
     },
     shape: {
       position: 'absolute',
-      opacity: 0.2,
-      border: '2px solid',
-      borderColor: '#3b82f6',
+      opacity: 0.4,
+      border: '1px solid',
+      borderColor: '#00f5ff',
+    },
+    gridPattern: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage: `
+        linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px)
+      `,
+      backgroundSize: '50px 50px',
+      zIndex: 1,
     },
     content: {
       position: 'relative',
@@ -120,43 +134,46 @@ const HeroSection = () => {
       width: '100%',
     },
     title: {
-      fontSize: 'clamp(3rem, 10vw, 6rem)',
-      fontFamily: 'var(--font-heading)',
-      fontWeight: 'var(--weight-black)',
-      background: 'linear-gradient(45deg, #FFD700, #FF6B35, #00FF94)',
+      fontSize: 'clamp(4rem, 12vw, 8rem)',
+      fontFamily: "'Orbitron', 'Rajdhani', monospace",
+      fontWeight: '900',
+      background: 'linear-gradient(45deg, #00f5ff, #0080ff)',
       backgroundClip: 'text',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       lineHeight: '1.1',
-      letterSpacing: '0.02em',
+      letterSpacing: 'clamp(10px, 3vw, 20px)',
       marginTop: 'clamp(2rem, 6vw, 4rem)',
       marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
-      filter: 'drop-shadow(0 0 30px rgba(255, 215, 0, 0.5))',
+      textShadow: '0 0 30px rgba(0, 245, 255, 0.8), 0 0 60px rgba(0, 245, 255, 0.4)',
       wordBreak: 'break-word',
       textTransform: 'uppercase',
+      filter: 'drop-shadow(0 0 40px rgba(0, 245, 255, 0.6))',
     },
     subtitle: {
-      fontSize: 'clamp(1.5rem, 5vw, 3rem)',
-      fontFamily: 'var(--font-subheading)',
-      fontWeight: 'var(--weight-semibold)',
+      fontSize: 'clamp(2rem, 6vw, 4rem)',
+      fontFamily: "'Orbitron', 'Rajdhani', monospace",
+      fontWeight: '900',
       color: '#FFD700',
       marginTop: 'clamp(0.5rem, 2vw, 1rem)',
       marginBottom: 'clamp(1rem, 3vw, 2rem)',
-      textShadow: '0 0 20px rgba(255, 215, 0, 0.6)',
-      letterSpacing: '0.01em',
+      textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4)',
+      letterSpacing: 'clamp(8px, 2vw, 15px)',
       wordBreak: 'break-word',
+      filter: 'drop-shadow(0 0 30px rgba(255, 215, 0, 0.6))',
     },
     description: {
-      fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-      fontFamily: 'var(--font-body)',
-      fontWeight: 'var(--weight-bold)',
-      color: 'var(--text-primary)',
+      fontSize: 'clamp(1.1rem, 3vw, 1.5rem)',
+      fontFamily: "'Rajdhani', 'Montserrat', sans-serif",
+      fontWeight: '600',
+      color: '#FF1493',
       marginBottom: 'clamp(1rem, 3vw, 2rem)',
       lineHeight: '1.5',
-      letterSpacing: '0.01em',
+      letterSpacing: '0.02em',
       maxWidth: '800px',
       margin: '0 auto clamp(1rem, 3vw, 2rem) auto',
-      textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+      textShadow: '0 0 15px rgba(255, 20, 147, 0.6), 0 0 30px rgba(255, 20, 147, 0.3)',
+      filter: 'drop-shadow(0 0 20px rgba(255, 20, 147, 0.4))',
     },
     highlight: {
       color: '#00d9ff',
@@ -167,19 +184,24 @@ const HeroSection = () => {
     },
     universityName: {
       fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-      fontFamily: 'var(--font-body)',
-      color: '#FF6B35',
-      fontWeight: 'var(--weight-medium)',
+      fontFamily: "'Rajdhani', sans-serif",
+      background: 'linear-gradient(45deg, #FF6B35, #FFA500)',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      fontWeight: '600',
       lineHeight: '1.4',
-      letterSpacing: '0.01em',
+      letterSpacing: '0.02em',
+      textShadow: '0 0 10px rgba(255, 107, 53, 0.5)',
     },
     departmentName: {
       fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-      fontFamily: 'var(--font-body)',
-      color: 'var(--text-secondary)',
-      fontWeight: 'var(--weight-normal)',
+      fontFamily: "'Rajdhani', sans-serif",
+      color: '#e2e8f0',
+      fontWeight: '500',
       marginTop: '0.5rem',
       lineHeight: '1.4',
+      textShadow: '0 0 8px rgba(226, 232, 240, 0.3)',
     },
     scrollIndicator: {
       position: 'absolute',
@@ -209,28 +231,32 @@ const HeroSection = () => {
       {/* Particle Background */}
       <ParticleBackground particleCount={100} particleColor="auto" />
 
+      {/* Grid pattern background */}
+      <div style={heroStyles.gridPattern}></div>
+
       {/* Floating geometric shapes */}
       <div style={heroStyles.shapesContainer}>
-        {[...Array(6)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             style={{
               ...heroStyles.shape,
               left: `${Math.random() * 80 + 10}%`,
               top: `${Math.random() * 80 + 10}%`,
-              width: `${64 + i * 16}px`,
-              height: `${64 + i * 16}px`,
-              borderColor: i % 2 === 0 ? '#3b82f6' : '#8b5cf6',
+              width: `${40 + i * 12}px`,
+              height: `${40 + i * 12}px`,
+              borderColor: i % 3 === 0 ? '#00f5ff' : i % 3 === 1 ? '#0080ff' : '#FFD700',
               borderRadius: i % 2 === 0 ? '0' : '50%',
               transform: i % 2 === 0 ? 'rotate(45deg)' : 'none',
+              boxShadow: `0 0 20px ${i % 3 === 0 ? 'rgba(0, 245, 255, 0.3)' : i % 3 === 1 ? 'rgba(0, 128, 255, 0.3)' : 'rgba(255, 215, 0, 0.3)'}`,
             }}
             animate={{
               rotate: [0, 360],
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1],
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
-              duration: 10 + i * 2,
+              duration: 8 + i * 1.5,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -284,15 +310,10 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <motion.p
-          style={{
-            ...heroStyles.description,
-            color: '#eb176cff',
-            fontWeight: 'bold',
-            textShadow: 'none',
-          }}
+          style={heroStyles.description}
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
           Reboot. Refresh. Rejoice — MCA Freshers 2.0 is Live
         </motion.p>

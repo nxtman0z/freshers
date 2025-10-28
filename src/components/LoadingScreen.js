@@ -98,11 +98,14 @@ const LoadingScreen = ({ onComplete }) => {
 
     window.addEventListener('resize', handleResize);
 
+    // Store the current ref value to avoid stale closure
+    const currentMount = mountRef.current;
+
     return () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (currentMount && renderer.domElement) {
+        currentMount.removeChild(renderer.domElement);
       }
       renderer.dispose();
     };

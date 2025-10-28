@@ -10,7 +10,7 @@ const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2025-10-29T09:00:00').getTime();
+    const targetDate = new Date('2025-10-31T09:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -80,11 +80,12 @@ const CountdownTimer = () => {
     },
     title: {
       fontSize: 'clamp(0.875rem, 2.5vw, 1.25rem)',
-      fontFamily: 'var(--font-subheading)',
-      fontWeight: 'var(--weight-semibold)',
-      color: 'var(--text-contrast)',
+      fontFamily: "'Rajdhani', sans-serif",
+      fontWeight: '600',
+      color: '#ffffff',
       marginBottom: 'clamp(0.375rem, 1.5vw, 1rem)',
       textAlign: 'center',
+      textShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
     },
     separator: {
       fontSize: 'clamp(1rem, 3.5vw, 2rem)',
