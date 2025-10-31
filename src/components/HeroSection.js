@@ -1,12 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import CountdownTimer from './CountdownTimer';
 import Video from './Video';
 import ParticleBackground from './ParticleBackground';
 
 const HeroSection = () => {
   const canvasRef = useRef(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [showClosedMessage, setShowClosedMessage] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowClosedMessage(true);
+    setTimeout(() => {
+      setShowClosedMessage(false);
+    }, 3000); // Hide message after 3 seconds
+  };
 
   // Particle animation on canvas
   useEffect(() => {
@@ -75,12 +82,12 @@ const HeroSection = () => {
   const heroStyles = {
     section: {
       position: 'relative',
-      minHeight: '100vh',
+      minHeight: '80vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       overflow: 'hidden',
-      padding: 'clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem)',
+      padding: 'clamp(1rem, 4vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(0.5rem, 2vw, 1rem)',
       margin: '0',
       border: 'none',
       outline: 'none',
@@ -245,7 +252,7 @@ const HeroSection = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          Reboot. Refresh. Rejoice — MCA Freshers 2.0 is Live
+          Thank You for Making UDBHAV 2.0 Unforgettable! 🎉
         </motion.p>
 
         {/* University name */}
@@ -262,9 +269,6 @@ const HeroSection = () => {
             Master of Computer Applications Department
           </p>
         </motion.div>
-
-        {/* Countdown Timer */}
-        <CountdownTimer />
 
         {/* CTA Buttons */}
         <motion.div
@@ -301,7 +305,7 @@ const HeroSection = () => {
               minWidth: 'clamp(160px, 32vw, 200px)',
               textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
-            onClick={() => window.open('https://forms.gle/1QvABHag9tzZd2si8', '_blank')}
+            onClick={handleButtonClick}
             whileHover={{
               scale: 1.02,
               boxShadow: '0 0 25px rgba(139, 92, 246, 0.7)',
@@ -325,7 +329,7 @@ const HeroSection = () => {
               minWidth: 'clamp(160px, 32vw, 200px)',
               textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
             }}
-            onClick={() => window.open('https://forms.gle/WuUNCzzMJJBuo3qk9', '_blank')}
+            onClick={handleButtonClick}
             whileHover={{
               scale: 1.02,
               boxShadow: '0 0 20px rgba(139, 92, 246, 0.7)',
@@ -359,6 +363,30 @@ const HeroSection = () => {
             🎬 Watch the Vibe
           </motion.button>
         </motion.div>
+
+        {/* Already Closed Message */}
+        {showClosedMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            style={{
+              marginTop: '1rem',
+              padding: 'clamp(0.75rem, 2vw, 1rem)',
+              background: 'rgba(239, 68, 68, 0.2)',
+              border: '1px solid rgba(239, 68, 68, 0.4)',
+              borderRadius: '15px',
+              color: '#ff6b6b',
+              textAlign: 'center',
+              fontSize: 'clamp(0.875rem, 2.5vw, 1rem)',
+              fontWeight: '600',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
+              boxShadow: '0 4px 15px rgba(239, 68, 68, 0.2)',
+            }}
+          >
+            ❌ Registration & Activity Participation Already Closed
+          </motion.div>
+        )}
 
         {/* Scroll indicator */}
         <motion.div

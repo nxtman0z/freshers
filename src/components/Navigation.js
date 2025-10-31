@@ -11,7 +11,7 @@ const Navigation = () => {
     { name: 'Event Info', href: '#event' },
     { name: 'Invitation', href: '#invitation' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Feedback', href: '#feedback', comingSoon: true },
+    { name: 'Feedback', href: '#feedback' },
     { name: 'Memories', href: '#memories', comingSoon: true },
   ];
 

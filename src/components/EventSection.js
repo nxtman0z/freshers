@@ -255,16 +255,16 @@ const EventSection = () => {
             <motion.span
               style={eventStyles.cardIcon}
             >
-              📅
+              🎊
             </motion.span>
             
-            <h3 style={eventStyles.cardTitle}>UDBHAV 2.0 - Freshers Welcome</h3>
+            <h3 style={eventStyles.cardTitle}>🎉 UDBHAV 2.0 Successfully Completed!</h3>
             
             <div style={eventStyles.eventDate}>
               📅 31st October 2025 | 🕘 11:00 AM - 5:30 PM
             </div>
             
-            <div style={eventStyles.eventTime}>⏰ 11.00 AM Onwards</div>
+            <div style={eventStyles.eventTime}>✅ Event Completed Successfully</div>
             <div style={eventStyles.eventVenue}>📍 Gym Area, CUTM Campus</div>
             
             <motion.div
@@ -277,7 +277,7 @@ const EventSection = () => {
                 repeat: Infinity,
               }}
             >
-              👥 Hosted by MCA Seniors <motion.span
+               Thanks to all Freshers   <motion.span
                 animate={{
                   scale: [1, 1.2, 1],
                   color: ['#f43f5e', '#ff6b9d', '#f43f5e'],
@@ -292,7 +292,7 @@ const EventSection = () => {
             </motion.div>
             
             <div style={eventStyles.disclaimer}>
-              *Place and date may change as per university schedule.
+              🙏 Thank you for making UDBHAV 2.0 a grand success!
             </div>
           </motion.div>
         </div>
