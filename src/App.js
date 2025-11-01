@@ -6,7 +6,6 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import EventSection from './components/EventSection';
 import InvitationSection from './components/InvitationSection';
-import MemoriesSection from './components/MemoriesSection';
 import ContactSection from './components/ContactSection';
 import FeedbackSection from './components/FeedbackSection';
 import Footer from './components/Footer';
@@ -57,11 +56,6 @@ function App() {
               {/* Event Section */}
               <section id="event">
                 <EventSection />
-              </section>
-
-              {/* Memories Section */}
-              <section id="memories">
-                <MemoriesSection />
               </section>
 
               {/* Feedback Section */}
