@@ -10,9 +10,9 @@ const Navigation = () => {
     { name: 'About', href: '#about' },
     { name: 'Event Info', href: '#event' },
     { name: 'Invitation', href: '#invitation' },
+    { name: 'Memories', href: '#memories' },
     { name: 'Contact', href: '#contact' },
     { name: 'Feedback', href: '#feedback' },
-    { name: 'Memories', href: '#memories', comingSoon: true },
   ];
 
   useEffect(() => {
